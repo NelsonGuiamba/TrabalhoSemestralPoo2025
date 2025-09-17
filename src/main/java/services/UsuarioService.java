@@ -77,5 +77,19 @@ public class UsuarioService {
         }
     }
 
+    public void pagar(){
+        if(user == null){
+            System.out.println("Primeiro deve logar");
+            return;
+        }
+        if(!user.getType().equals(UserType.CLIENT)){
+            System.out.println("Metodo so para clientes");
+            return;
+        }
+        // Pedido p = dao.getPedidoByUser(user)
+        // etc
+
+    }
+
 
 }
