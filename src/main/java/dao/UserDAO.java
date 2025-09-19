@@ -9,49 +9,10 @@ import util.HibernateUtil;
 
 import java.util.List;
 
-public class UserDAO {
+public class UserDAO extends BaseDAO<User, Integer> {
 
-    public UserDAO() {}
-
-    // Add a new user
-    public void addUser(User user) {
-        Transaction tx = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            tx = session.beginTransaction();
-            session.persist(user);
-            tx.commit();
-        } catch (HibernateException e) {
-            if (tx != null) tx.rollback();
-            e.printStackTrace();
-        }
-    }
-
-    // Get all users
-    public List<User> getUsers() {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery("from Usuarios ", User.class).list();
-        } catch (HibernateException e) {
-            e.printStackTrace();
-            return List.of();
-        }
-    }
-
-    // Remove a user by ID
-    public void removeUser(Long id) {
-        Transaction tx = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            tx = session.beginTransaction();
-            User userToRemove = session.get(User.class, id);
-            if (userToRemove == null) {
-                System.out.println("User to remove does not exist");
-            } else {
-                session.remove(userToRemove);
-            }
-            tx.commit();
-        } catch (HibernateException e) {
-            if (tx != null) tx.rollback();
-            e.printStackTrace();
-        }
+    public UserDAO() {
+        super(User.class);
     }
 
     // Authenticate user by name and password

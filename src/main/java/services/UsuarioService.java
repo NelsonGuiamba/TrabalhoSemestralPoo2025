@@ -52,7 +52,7 @@ public class UsuarioService {
             return false;
         }
 
-        dao.addUser(new User(name, password, userType));
+        dao.save(new User(name, password, userType));
 
         return true;
     }
@@ -61,7 +61,7 @@ public class UsuarioService {
         if (user == null || user.getType() != UserType.ADMIN)
             return false;
 
-        dao.removeUser((long) id);
+        dao.deleteById(id);
         return true;
     }
 
@@ -69,9 +69,9 @@ public class UsuarioService {
         if (user == null) {
             return new ArrayList<>();
         } else if (user.getType().equals(UserType.ADMIN)) {
-            return dao.getUsers();
+            return dao.findAll();
         } else {
-            return dao.getUsers().stream()
+            return dao.findAll().stream()
                     .filter(u -> u.getType() == UserType.CLIENT)
                     .collect(Collectors.toList());
         }
