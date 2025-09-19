@@ -4,26 +4,53 @@
  */
 package model;
 
+import javax.persistence.*;
+import java.util.List;
+
 /**
  *
  * @author Administrator
  */
-public class Menu {
-    private String[] categoria;
+
+// Cada item do menu do restaurante
+@Entity(name = "MenuItem")
+//@Table(name = "MenuItem", uniqueConstraints = @UniqueConstraint(columnNames = "nomeDoPrato"))
+public class MenuItem {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Enumerated(EnumType.STRING)
+    private ItemCategory categoria;
     private String nomeDoPrato;
     private String descricao;
-    private String ingridentes;
+    @ManyToMany
+    private List<Ingrediente> ingredientes;
     private double preco;
-    private int tempoPreparacao;
+    private int tempoPreparacao; // em segundos
 
-    
-    
-    public String[] getCategoria() {
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public ItemCategory getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String[] categoria) {
+    public void setCategoria(ItemCategory categoria) {
         this.categoria = categoria;
+    }
+
+    public List<Ingrediente> getIngredientes() {
+        return ingredientes;
+    }
+
+    public void setIngredientes(List<Ingrediente> ingredientes) {
+        this.ingredientes = ingredientes;
     }
 
     public String getNomeDoPrato() {
@@ -40,14 +67,6 @@ public class Menu {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public String getIngridentes() {
-        return ingridentes;
-    }
-
-    public void setIngridentes(String ingridentes) {
-        this.ingridentes = ingridentes;
     }
 
     public double getPreco() {

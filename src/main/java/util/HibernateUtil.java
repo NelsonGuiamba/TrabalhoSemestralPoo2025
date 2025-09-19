@@ -1,6 +1,6 @@
 package util;
 
-import model.User;
+import model.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
@@ -18,7 +18,12 @@ public class HibernateUtil {
                     .build();
 
             MetadataSources sources = new MetadataSources(registry)
-                    .addAnnotatedClass(User.class);
+                    .addAnnotatedClass(User.class)
+                    .addAnnotatedClass(Pedido.class)
+                    .addAnnotatedClass(Mesa.class)
+                    .addAnnotatedClass(Ingrediente.class)
+                    .addAnnotatedClass(MenuItem.class)
+                    .addAnnotatedClass(PedidoItem.class);
 
             Metadata metadata = sources.getMetadataBuilder().build();
 

@@ -4,26 +4,38 @@
  */
 package model;
 
+import org.hibernate.annotations.CreationTimestamp;
+
+import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
  * @author Administrator
  */
+@Entity(name = "Pedido")
 public class Pedido {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @ManyToOne
     private User client;
-    private Item item;
+    @OneToMany(mappedBy = "pedido",  cascade = CascadeType.MERGE,  orphanRemoval = true)
+    private List<PedidoItem> items = new ArrayList<>();
+    @ManyToOne
     private User worker;
-    private Date dataCompra;
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime dataCompra = LocalDateTime.now();
+    @ManyToOne(optional = true)
     private Mesa mesa;
-    private boolean status;
+    @Enumerated(EnumType.STRING)
+    private PedidoStatus status;
 
-    public Pedido(User client, Item item, User worker, Date dataCompra, Mesa mesa) {
-        this.client = client;
-        this.item = item;
-        this.worker = worker;
-        this.dataCompra = dataCompra;
-        this.mesa = mesa;
+    public Pedido() {
+
     }
 
     public User getClient() {
@@ -34,28 +46,12 @@ public class Pedido {
         this.client = client;
     }
 
-    public Item getItem() {
-        return item;
-    }
-
-    public void setItem(Item menu) {
-        this.item = menu;
-    }
-
     public User getWorker() {
         return worker;
     }
 
     public void setWorker(User worker) {
         this.worker = worker;
-    }
-
-    public Date getDataCompra() {
-        return dataCompra;
-    }
-
-    public void setDataCompra(Date dataCompra) {
-        this.dataCompra = dataCompra;
     }
 
     public Mesa getMesa() {
@@ -66,13 +62,35 @@ public class Pedido {
         this.mesa = mesa;
     }
 
-    public boolean isStatus() {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public List<PedidoItem> getItems() {
+        return items;
+    }
+
+    public void setItems(List<PedidoItem> items) {
+        this.items = items;
+    }
+
+    public LocalDateTime getDataCompra() {
+        return dataCompra;
+    }
+
+    public void setDataCompra(LocalDateTime dataCompra) {
+        this.dataCompra = dataCompra;
+    }
+
+    public PedidoStatus getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(PedidoStatus status) {
         this.status = status;
     }
-    
-    
 }

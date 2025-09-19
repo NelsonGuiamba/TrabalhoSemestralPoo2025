@@ -1,8 +1,11 @@
 package model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "Usuarios")
+@Table(name = "Usuarios", uniqueConstraints = @UniqueConstraint(columnNames = "name"))
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,6 +15,11 @@ public class User {
     private String password;
     @Enumerated(EnumType.STRING)
     private UserType type;
+    @OneToMany(mappedBy = "client")
+    private List<Pedido> pedidosFeitos = new ArrayList<>();
+
+    @OneToMany(mappedBy = "worker")
+    private List<Pedido> pedidosAtendidos = new ArrayList<>();
 
     public User() {
 
