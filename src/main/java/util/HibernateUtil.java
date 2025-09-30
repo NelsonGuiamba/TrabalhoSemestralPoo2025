@@ -23,7 +23,8 @@ public class HibernateUtil {
                     .addAnnotatedClass(Mesa.class)
                     .addAnnotatedClass(Ingrediente.class)
                     .addAnnotatedClass(MenuItem.class)
-                    .addAnnotatedClass(PedidoItem.class);
+                    .addAnnotatedClass(PedidoItem.class)
+                    .addAnnotatedClass(Reserva.class);
 
             Metadata metadata = sources.getMetadataBuilder().build();
 

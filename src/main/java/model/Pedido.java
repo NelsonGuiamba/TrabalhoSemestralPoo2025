@@ -29,7 +29,7 @@ public class Pedido {
     private User worker;
     @Column(nullable = false, updatable = false)
     private LocalDateTime dataCompra = LocalDateTime.now();
-    @ManyToOne(optional = true)
+    @ManyToOne(optional = false)
     private Mesa mesa;
     @Enumerated(EnumType.STRING)
     private PedidoStatus status;

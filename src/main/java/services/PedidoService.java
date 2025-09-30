@@ -1,9 +1,6 @@
 package services;
 
-import dao.MenuItemDAO;
-import dao.PedidoDAO;
-import dao.PedidoItemDAO;
-import dao.UserDAO;
+import dao.*;
 import model.*;
 import org.hibernate.Hibernate;
 
@@ -19,9 +16,10 @@ public class PedidoService {
     private final UserDAO userDAO = new UserDAO();
     private final MenuItemDAO menuItemDAO = new MenuItemDAO();
     private final PedidoItemDAO pedidoItemDAO = new PedidoItemDAO();
+    private final MesaDAO mesaDAO = new MesaDAO();
     public PedidoService(){}
 
-    public int criarPedido(int idCLient, int idWorker, List<PedidoItem> initialItems){
+    public int criarPedido(int idCLient, int idWorker, int idMesa, List<PedidoItem> initialItems){
         Optional<User> clienteWrapper = userDAO.findById(idCLient);
         if (clienteWrapper.isEmpty()){
             System.out.println("ID do cliente nao encontrado");
@@ -47,11 +45,19 @@ public class PedidoService {
             System.out.println("Lista de items invalida");
             return -1;
         }
+
+        Optional<Mesa> mesaWrapper = mesaDAO.findById(idMesa);
+        if (mesaWrapper.isEmpty()){
+            System.out.println("ID do mesa nao encontrado");
+            return -1;
+        }
+        Mesa mesa = mesaWrapper.get();
         Pedido pedido = new Pedido();
         pedido.setStatus(PedidoStatus.PENDENTE);
         pedido.setItems(initialItems);
         pedido.setClient(cliente);
         pedido.setWorker(worker);
+        pedido.setMesa(mesa);
 
         return pedidoDAO.save(pedido);
     }

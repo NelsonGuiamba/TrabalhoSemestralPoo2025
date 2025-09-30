@@ -13,7 +13,7 @@ module org.example.trabalhosemestralpoo2025 {
     opens org.example.trabalhosemestralpoo2025 to javafx.fxml;
 
     // open entities to Hibernate (reflection required for @Entity classes)
-    opens model to org.hibernate.orm.core, jakarta.persistence;
+    opens model to org.hibernate.orm.core, javax.persistence;
 
     exports org.example.trabalhosemestralpoo2025;
 }

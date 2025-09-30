@@ -22,6 +22,9 @@ public class Mesa {
     @OneToMany(mappedBy = "mesa")
     private List<Pedido> pedidos = new ArrayList<>();
 
+    @OneToMany(mappedBy = "mesa", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Reserva> reservas;
+
     public Mesa(){
 
     }
@@ -40,5 +43,21 @@ public class Mesa {
 
     public void setCapacidade(int capacidade) {
         this.capacidade = capacidade;
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+
+    public List<Reserva> getReservas() {
+        return reservas;
+    }
+
+    public void setReservas(List<Reserva> reservas) {
+        this.reservas = reservas;
     }
 }
