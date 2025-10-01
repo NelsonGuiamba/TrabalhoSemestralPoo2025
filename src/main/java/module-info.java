@@ -16,4 +16,6 @@ module org.example.trabalhosemestralpoo2025 {
     opens model to org.hibernate.orm.core, javax.persistence;
 
     exports org.example.trabalhosemestralpoo2025;
+    exports view;
+    exports controller;
 }
