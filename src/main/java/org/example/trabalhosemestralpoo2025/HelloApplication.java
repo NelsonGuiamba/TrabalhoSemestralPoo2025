@@ -16,7 +16,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("test.fxml"));
         Parent root = fxmlLoader.load();
-        String css = this.getClass().getResource("landing.css").toExternalForm();
+        String css = this.getClass().getResource("/landing.css").toExternalForm();
         root.getStylesheets().add(css);
         Scene scene = new Scene(root);
         stage.setTitle("JavaFX FXML Example");

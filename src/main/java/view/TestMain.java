@@ -14,7 +14,7 @@ public class TestMain extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LandingPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/LandingPage.fxml"));
 //        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
 //        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Register.fxml"));
 

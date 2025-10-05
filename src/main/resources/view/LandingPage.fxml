@@ -19,7 +19,7 @@
          <children>
             <Label onMouseEntered="#changeToClicable" onMouseExited="#revertLink" styleClass="menuTitles" text="HOME" textFill="WHITE">
                <font>
-                  <Font name="Montserrat Regular" size="18.0" />
+                  <Font name="Montserrat Bold" size="3.0" />
                </font>
             </Label>
             <Label onMouseEntered="#changeToClicable" onMouseExited="#revertLink" styleClass="menuTitles" text="MENU" textFill="WHITE">
@@ -45,7 +45,7 @@
             <Image url="@images/Prato%20vermelho.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="495.0" fitWidth="377.0" layoutX="844.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="495.0" fitWidth="377.0" layoutX="862.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Salada.png" />
          </image>
@@ -54,21 +54,21 @@
          <font>
             <Font name="Montserrat Regular" size="36.0" />
          </font></Label>
-      <Label layoutX="370.0" layoutY="210.0" prefHeight="102.0" prefWidth="526.0" text="O MELHOR " textFill="WHITE">
+      <Label layoutX="391.0" layoutY="219.0" prefHeight="102.0" prefWidth="526.0" text="O MELHOR " textFill="WHITE">
          <font>
-            <Font name="Montserrat Regular" size="84.0" />
+            <Font name="Montserrat Bold" size="79.0" />
          </font>
       </Label>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="350.0" layoutY="291.0" prefHeight="102.0" prefWidth="526.0" style="-fx-text-fill: #ffa300;" text="PRATO" textFill="#ffa300">
          <font>
-            <Font name="Montserrat Regular" size="84.0" />
+            <Font name="Montserrat Bold" size="81.0" />
          </font>
       </Label>
       <VBox layoutX="405.0" layoutY="420.0">
          <children>
             <Label text="Descubra o sabor que transforma cada refeição ">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Montserrat Regular" size="18.0" />
                </font>
             </Label>
             <Label text="em um momento especial">
@@ -78,7 +78,7 @@
             </Label>
             <Label text="Ingredientes frescos, pratos preparados com">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Montserrat Regular" size="18.0" />
                </font>
             </Label>
             <Label text="carrinho e um toque unico que conquista">
@@ -93,6 +93,9 @@
             </Label>
          </children>
       </VBox>
-      <Label alignment="CENTER" layoutX="496.0" layoutY="557.0" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" prefHeight="86.0" prefWidth="277.0" styleClass="btn" text="Peça Agora" />
+      <Label alignment="CENTER" layoutX="530.0" layoutY="574.0" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" prefHeight="70.0" prefWidth="225.0" styleClass="btn" text="Peça Agora">
+         <font>
+            <Font name="Montserrat Medium" size="10.0" />
+         </font></Label>
    </children>
 </AnchorPane>

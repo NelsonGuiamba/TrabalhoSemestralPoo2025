@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="721.0" prefWidth="1252.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="724.0" fitWidth="1256.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@view/images/menuElements/background.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="52.0" fitWidth="272.0" layoutX="185.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@view/images/menuElements/backgroundTittles.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="266.0" layoutY="63.0" text="entradas" textFill="#f8f8f8">
+         <font>
+            <Font name="Retro Team" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="57.0" layoutY="154.0" text="Pao de alho">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="271.0" layoutY="154.0" text="150MT" textFill="#f47920">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Text layoutX="59.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." textAlignment="JUSTIFY" wrappingWidth="250.0" />
+      <Label layoutX="53.0" layoutY="266.0" text="Chamussas de carne">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="267.0" layoutY="266.0" text="200MT" textFill="#f47920">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Text layoutX="55.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." textAlignment="JUSTIFY" wrappingWidth="250.0" />
+      <Label layoutX="371.0" layoutY="147.0" text="Rissois de camarao">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="585.0" layoutY="147.0" text="200MT" textFill="#f47920">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Text layoutX="373.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." textAlignment="JUSTIFY" wrappingWidth="250.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="379.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@view/images/menuElements/entradas.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="52.0" fitWidth="272.0" layoutX="818.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@view/images/menuElements/backgroundTittles.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="899.0" layoutY="53.0" text="saladas" textFill="#f8f8f8">
+         <font>
+            <Font name="Retro Team" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="690.0" layoutY="144.0" text="atum">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="886.0" layoutY="142.0" text="300MT" textFill="#f47920">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Text layoutX="692.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." textAlignment="JUSTIFY" wrappingWidth="250.0" />
+      <Label layoutX="686.0" layoutY="256.0" text="salada grega">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="900.0" layoutY="256.0" text="450MT" textFill="#f47920">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Text layoutX="688.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." textAlignment="JUSTIFY" wrappingWidth="250.0" />
+      <Label layoutX="969.0" layoutY="137.0" text="salada de frango">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="1166.0" layoutY="136.0" text="350MT" textFill="#f47920">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Text layoutX="971.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." textAlignment="JUSTIFY" wrappingWidth="250.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1012.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@view/images/menuElements/hamburger-street-food-seafood-fast-food-delicious-food-c8d3f9aa7bdf1cda0ab2e0ded131f324.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="52.0" fitWidth="272.0" layoutX="187.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@view/images/menuElements/backgroundTittles.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="287.0" layoutY="392.0" text="grill" textFill="#f8f8f8">
+         <font>
+            <Font name="Retro Team" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="484.0" text="porco assado">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="273.0" layoutY="484.0" text="500MT" textFill="#f47920">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Text layoutX="61.0" layoutY="535.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." textAlignment="JUSTIFY" wrappingWidth="250.0" />
+      <Label layoutX="55.0" layoutY="596.0" text="tibone">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="269.0" layoutY="596.0" text="200MT" textFill="#f47920">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Text layoutX="57.0" layoutY="647.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." textAlignment="JUSTIFY" wrappingWidth="250.0" />
+      <Label layoutX="373.0" layoutY="477.0" text="1/2 frango assado">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="587.0" layoutY="477.0" text="600" textFill="#f47920">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Text layoutX="375.0" layoutY="528.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." textAlignment="JUSTIFY" wrappingWidth="250.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="381.0" layoutY="558.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@view/images/menuElements/Meal-Transparent-Images.png" />
+         </image>
+         <effect>
+            <InnerShadow height="94.28" radius="28.32" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="52.0" fitWidth="272.0" layoutX="834.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@view/images/menuElements/backgroundTittles.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="934.0" layoutY="395.0" text="bebidas" textFill="#f8f8f8">
+         <font>
+            <Font name="Retro Team" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="706.0" layoutY="487.0" text="coca-cola lata">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="920.0" layoutY="487.0" text="80MT" textFill="#f47920">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Text layoutX="708.0" layoutY="538.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." textAlignment="JUSTIFY" wrappingWidth="250.0" />
+      <Label layoutX="702.0" layoutY="599.0" text="1l agua">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="916.0" layoutY="599.0" text="100" textFill="#f47920">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Text layoutX="704.0" layoutY="650.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." textAlignment="JUSTIFY" wrappingWidth="250.0" />
+      <Label layoutX="1020.0" layoutY="480.0" text="cerveja a peressao ">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="1210.0" layoutY="482.0" text="600" textFill="#f47920">
+         <font>
+            <Font name="Retro Team" size="25.0" />
+         </font>
+      </Label>
+      <Text layoutX="1000.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." textAlignment="JUSTIFY" wrappingWidth="250.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1028.0" layoutY="561.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@view/images/menuElements/—Pngtree—a%20vibrant--cold-drink-glasses_20509166.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="336.0" fitWidth="116.0" layoutX="610.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@view/images/menuElements/separator.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="336.0" fitWidth="116.0" layoutX="612.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@view/images/menuElements/separator.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="90.0" layoutX="25.0" layoutY="379.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@view/images/menuElements/next.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
