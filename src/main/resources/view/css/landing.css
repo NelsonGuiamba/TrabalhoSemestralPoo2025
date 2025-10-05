@@ -1,0 +1,40 @@
+.label{
+    -fx-font-family: Montserrat;
+    -fx-text-fill: white;
+}
+#mainPane{
+    -fx-background-image: url("../images/Background.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 100% 100%;
+    -fx-background-position: center center;
+}
+
+.menuTitles{
+    transition: -fx-text-fill 0.4s ease-in-out;
+    -fx-font-size: 24px;
+    -fx-text-fill: white;
+}
+.menuTitles:hover{
+    -fx-text-fill: #ffa300;
+    -fx-underline: true;
+}
+
+.btn{
+    -fx-font-family: Montserrat;
+    -fx-font-size: 36px;
+    -fx-text-fill:  #ffa300;
+    -fx-border-radius: 24px;
+    -fx-border-width: 4px;
+    -fx-border-color: #ffa300;
+    -fx-border-style: solid;
+    transition: -fx-text-fill 0.4s ease-in-out;
+    transition: -fx-background-color 0.4s ease-in-out;
+}
+
+.btn:hover{
+    -fx-text-fill: white;
+    -fx-underline: true;
+    -fx-background-color: #ffa300;
+    -fx-background-radius: 24px;
+    -fx-border-width: 4px;
+}
