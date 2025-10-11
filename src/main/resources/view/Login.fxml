@@ -12,8 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:controller="controller.LoginController" maxHeight="720.0" maxWidth="1256.0" prefHeight="720.0" prefWidth="1256.0" style="-fx-background-color: #aa005f;" stylesheets="@css/login.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="720.0" maxWidth="1256.0" prefHeight="720.0" prefWidth="1256.0" style="-fx-background-color: #aa005f;" stylesheets="@css/login.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
       <AnchorPane layoutX="237.0" layoutY="58.0" prefHeight="610.0" prefWidth="792.0" style="-fx-background-color: white;">
          <children>
@@ -70,7 +69,7 @@
                         </Button>
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="8.0">
                            <children>
-                              <Label alignment="BOTTOM_RIGHT" contentDisplay="TOP" prefHeight="20.0" prefWidth="201.0" text="Não  tem uma conta?">
+                              <Label alignment="BOTTOM_RIGHT" contentDisplay="TOP" prefHeight="20.0" prefWidth="201.0" text="Não tem uma conta?">
                                  <font>
                                     <Font name="Raleway Regular" size="16.0" />
                                  </font>
