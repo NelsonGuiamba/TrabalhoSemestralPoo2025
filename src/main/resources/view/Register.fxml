@@ -88,7 +88,7 @@
                         </Button>
                         <HBox prefHeight="24.0" prefWidth="371.0" spacing="8.0">
                            <children>
-                              <Label alignment="BOTTOM_RIGHT" contentDisplay="TOP" prefHeight="20.0" prefWidth="201.0" text="Não  tem uma conta?">
+                              <Label alignment="BOTTOM_RIGHT" contentDisplay="TOP" prefHeight="20.0" prefWidth="201.0" text="Não tem uma conta?">
                                  <font>
                                     <Font name="Raleway Regular" size="16.0" />
                                  </font>

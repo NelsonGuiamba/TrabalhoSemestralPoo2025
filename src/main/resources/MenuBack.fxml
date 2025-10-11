@@ -25,7 +25,7 @@
             <Font name="Retro Team" size="35.0" />
          </font>
       </Label>
-      <Label layoutX="57.0" layoutY="154.0" text="Pao de alho">
+      <Label layoutX="57.0" layoutY="154.0" text="Pão de alho">
          <font>
             <Font name="Retro Team" size="25.0" />
          </font>
@@ -41,13 +41,13 @@
             <Font name="Retro Team" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="267.0" layoutY="266.0" text="200MT" textFill="#f47920">
+      <Label layoutX="287.0" layoutY="266.0" text="200MT" textFill="#f47920">
          <font>
             <Font name="Retro Team" size="25.0" />
          </font>
       </Label>
       <Text layoutX="55.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." textAlignment="JUSTIFY" wrappingWidth="250.0" />
-      <Label layoutX="371.0" layoutY="147.0" text="Rissois de camarao">
+      <Label layoutX="371.0" layoutY="147.0" text="Rissois de camarão">
          <font>
             <Font name="Retro Team" size="25.0" />
          </font>
@@ -73,7 +73,7 @@
             <Font name="Retro Team" size="35.0" />
          </font>
       </Label>
-      <Label layoutX="690.0" layoutY="144.0" text="atum">
+      <Label layoutX="690.0" layoutY="144.0" text="Atum">
          <font>
             <Font name="Retro Team" size="25.0" />
          </font>
@@ -84,7 +84,7 @@
          </font>
       </Label>
       <Text layoutX="692.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." textAlignment="JUSTIFY" wrappingWidth="250.0" />
-      <Label layoutX="686.0" layoutY="256.0" text="salada grega">
+      <Label layoutX="686.0" layoutY="256.0" text="Salada grega">
          <font>
             <Font name="Retro Team" size="25.0" />
          </font>
@@ -95,7 +95,7 @@
          </font>
       </Label>
       <Text layoutX="688.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." textAlignment="JUSTIFY" wrappingWidth="250.0" />
-      <Label layoutX="969.0" layoutY="137.0" text="salada de frango">
+      <Label layoutX="969.0" layoutY="137.0" text="Salada de frango">
          <font>
             <Font name="Retro Team" size="25.0" />
          </font>
@@ -121,7 +121,7 @@
             <Font name="Retro Team" size="35.0" />
          </font>
       </Label>
-      <Label layoutX="59.0" layoutY="484.0" text="porco assado">
+      <Label layoutX="59.0" layoutY="484.0" text="Porco assado">
          <font>
             <Font name="Retro Team" size="25.0" />
          </font>
@@ -132,7 +132,7 @@
          </font>
       </Label>
       <Text layoutX="61.0" layoutY="535.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." textAlignment="JUSTIFY" wrappingWidth="250.0" />
-      <Label layoutX="55.0" layoutY="596.0" text="tibone">
+      <Label layoutX="55.0" layoutY="596.0" text="T-bone">
          <font>
             <Font name="Retro Team" size="25.0" />
          </font>
@@ -143,12 +143,12 @@
          </font>
       </Label>
       <Text layoutX="57.0" layoutY="647.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." textAlignment="JUSTIFY" wrappingWidth="250.0" />
-      <Label layoutX="373.0" layoutY="477.0" text="1/2 frango assado">
+      <Label layoutX="373.0" layoutY="477.0" text="1/2 Frango assado">
          <font>
             <Font name="Retro Team" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="587.0" layoutY="477.0" text="600" textFill="#f47920">
+      <Label layoutX="587.0" layoutY="477.0" text="600MT" textFill="#f47920">
          <font>
             <Font name="Retro Team" size="25.0" />
          </font>
@@ -172,7 +172,7 @@
             <Font name="Retro Team" size="35.0" />
          </font>
       </Label>
-      <Label layoutX="706.0" layoutY="487.0" text="coca-cola lata">
+      <Label layoutX="706.0" layoutY="487.0" text="Coca-cola lata">
          <font>
             <Font name="Retro Team" size="25.0" />
          </font>
@@ -183,7 +183,7 @@
          </font>
       </Label>
       <Text layoutX="708.0" layoutY="538.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." textAlignment="JUSTIFY" wrappingWidth="250.0" />
-      <Label layoutX="702.0" layoutY="599.0" text="1l agua">
+      <Label layoutX="702.0" layoutY="599.0" text="1l Água">
          <font>
             <Font name="Retro Team" size="25.0" />
          </font>
@@ -194,7 +194,7 @@
          </font>
       </Label>
       <Text layoutX="704.0" layoutY="650.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s." textAlignment="JUSTIFY" wrappingWidth="250.0" />
-      <Label layoutX="1020.0" layoutY="480.0" text="cerveja a peressao ">
+      <Label layoutX="1020.0" layoutY="480.0" text="Cerveja a pressão ">
          <font>
             <Font name="Retro Team" size="25.0" />
          </font>
@@ -210,12 +210,12 @@
             <Image url="@view/images/menuElements/—Pngtree—a%20vibrant--cold-drink-glasses_20509166.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="336.0" fitWidth="116.0" layoutX="610.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="336.0" fitWidth="116.0" layoutX="620.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@view/images/menuElements/separator.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="336.0" fitWidth="116.0" layoutX="612.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="336.0" fitWidth="116.0" layoutX="620.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@view/images/menuElements/separator.png" />
          </image>
