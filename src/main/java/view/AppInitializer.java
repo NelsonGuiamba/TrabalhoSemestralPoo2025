@@ -23,37 +23,37 @@ public class AppInitializer {
 
         List<Map<String, String>> entradas = List.of(
                 Map.of(
-                        "nomeDoPrato", "Rissóis de Camarão",
-                        "ingredientes", "camarao, alho, cebola, piripiri, farinha",
-                        "preco", "124.50",
+                        "nomeDoPrato", "Dúzia de Rissóis de Camarão",
+                        "ingredientes", "camarao, alho, cebola, piripiri, farinha de trigo, sal",
+                        "preco", "300.00",
                         "tempoPreparacao", "28",
                         "imagem", "/view/images/pratos/rissolcamarao.png"
                 ),
                 Map.of(
-                        "nomeDoPrato", "Duzia de chamuças",
-                        "ingredientes", "carne, alho, cebola, piripiri, trigo",
+                        "nomeDoPrato", "Dúzia de Chamuças",
+                        "ingredientes", "carne, alho, cebola, piripiri,farinha de trigo",
                         "preco", "300.00",
                         "tempoPreparacao", "22",
                         "imagem", "/view/images/pratos/chamucas.png"
                 ),
                 Map.of(
                         "nomeDoPrato", "Hotdog",
-                        "ingredientes", "paofrances, salsicha, ketchup, mostarda, maionese",
-                        "preco", "230.50",
+                        "ingredientes", "pão francês, salsicha, ketchup, mostarda, maionese",
+                        "preco", "250.00",
                         "tempoPreparacao", "18",
                         "imagem", "/view/images/pratos/hotdog.png"
                 ),
                 Map.of(
                         "nomeDoPrato", "Batata Chips",
-                        "ingredientes", "batata, sal, oleo, piripiri, ervas",
+                        "ingredientes", "batata, sal, óleo, piripiri, ervas",
                         "preco", "350.00",
                         "tempoPreparacao", "15",
                         "imagem", "/view/images/pratos/batatachips.png"
                 ),
                 Map.of(
-                        "nomeDoPrato", "Salada de Palmito e Coco",
-                        "ingredientes", "palmito, coco, lima, alface, tomate",
-                        "preco", "123.50",
+                        "nomeDoPrato", "Salada de Palmito e Côco",
+                        "ingredientes", "palmito, côco, lima, alface, tomate",
+                        "preco", "120.00",
                         "tempoPreparacao", "12",
                         "imagem", "/view/images/pratos/saladapalmito.png"
                 )
@@ -62,21 +62,21 @@ public class AppInitializer {
         List<Map<String, String>> pratosPrincipais = List.of(
                 Map.of(
                         "nomeDoPrato", "Matapa com Camarão",
-                        "ingredientes", "mandioca, amendoim, leitecoco, camarao, alho, cebola, tomate",
-                        "preco", "120.00",
+                        "ingredientes", "mandioca, amendoim, leite de côco, camarão, alho, cebola, tomate",
+                        "preco", "130.00",
                         "tempoPreparacao", "65",
                         "imagem", "/view/images/pratos/matapacamarao.png"
                 ),
                 Map.of(
                         "nomeDoPrato", "Vaca assada",
-                        "ingredientes", "carnevaca, coco, amendoim, tomate, cebola, alho, piripiri",
-                        "preco", "411.50",
+                        "ingredientes", "carne de vaca, côco, amendoim, tomate, cebola, alho, piripiri",
+                        "preco", "375.00",
                         "tempoPreparacao", "70",
                         "imagem", "/view/images/pratos/pedacosdevaca.png"
                 ),
                 Map.of(
                         "nomeDoPrato", "Frango frito",
-                        "ingredientes", "frango, alho, cebola, piripiri, limao, coentro",
+                        "ingredientes", "frango,alho , cebola, piripiri, limão, coentro",
                         "preco", "210.00",
                         "tempoPreparacao", "38",
                         "imagem", "/view/images/pratos/frangofrito.png"
@@ -84,29 +84,29 @@ public class AppInitializer {
                 Map.of(
                         "nomeDoPrato", "Caril de Amendoim (Frango)",
                         "ingredientes", "frango, amendoim, tomate, alho, cebola, coco",
-                        "preco", "211.00",
-                        "tempoPreparacao", "58",
+                        "preco", "200.00",
+                        "tempoPreparacao", "65",
                         "imagem", "/view/images/pratos/carilamendoim.png"
                 ),
                 Map.of(
                         "nomeDoPrato", "Peixe Grelhado com Piri-Piri",
                         "ingredientes", "peixe, piripiri, alho, limao, coentro",
-                        "preco", "213.00",
+                        "preco", "220.00",
                         "tempoPreparacao", "35",
                         "imagem", "/view/images/pratos/peixegrelhado.png"
                 ),
                 Map.of(
                         "nomeDoPrato", "Feijoada à Moçambicana",
-                        "ingredientes", "feijao, carneporco, cebola, alho, tomate, amendoim",
-                        "preco", "129.00",
+                        "ingredientes", "feijão, carne de porco, cebola, alho, tomate, cenoura",
+                        "preco", "130.00",
                         "tempoPreparacao", "95",
                         "imagem", "/view/images/pratos/feijoada.png"
                 ),
                 Map.of(
                         "nomeDoPrato", "Galinha à Zambeziana",
-                        "ingredientes", "frango, coco, alho, tomate, piripiri, limao",
-                        "preco", "122.50",
-                        "tempoPreparacao", "62",
+                        "ingredientes", "frango, côco, alho, tomate, piripiri, limão",
+                        "preco", "250.00",
+                        "tempoPreparacao", "60",
                         "imagem", "/view/images/pratos/frangoassado.png"
                 )
         );
@@ -114,29 +114,29 @@ public class AppInitializer {
         List<Map<String, String>> sobremesas = List.of(
                 Map.of(
                         "nomeDoPrato", "Pudim de caramelo",
-                        "ingredientes", "batatadoce, amendoim, acucar, ovo, coco",
-                        "preco", "666.00",
+                        "ingredientes", "batata doce, amendoim, açúcar, ovo, côco",
+                        "preco", "280.00",
                         "tempoPreparacao", "55",
                         "imagem", "/view/images/pratos/pudimdecaramelo.png"
                 ),
                 Map.of(
-                        "nomeDoPrato", "Sorvete de coco",
-                        "ingredientes", "mandioca, coco, acucar, ovo",
-                        "preco", "543.50",
-                        "tempoPreparacao", "40",
+                        "nomeDoPrato", "Sorvete de côco",
+                        "ingredientes", "mandioca, côco, açúcar, ovo",
+                        "preco", "190.50",
+                        "tempoPreparacao", "20",
                         "imagem", "/view/images/pratos/sorvetedecoco.png"
                 ),
                 Map.of(
                         "nomeDoPrato", "Mousse de chocolate",
-                        "ingredientes", "chocolate, leite, acucar, ovo",
-                        "preco", "443.00",
+                        "ingredientes", "chocolate, leite, açúcar, ovo",
+                        "preco", "400.00",
                         "tempoPreparacao", "25",
                         "imagem", "/view/images/pratos/moussedechocolate.png"
                 ),
                 Map.of(
                         "nomeDoPrato", "Salada de frutas",
-                        "ingredientes", "maca, banana, laranja, melancia, mamao",
-                        "preco", "345.00",
+                        "ingredientes", "maça, banana, laranja, melancia, uva, morango",
+                        "preco", "145.00",
                         "tempoPreparacao", "10",
                         "imagem", "/view/images/pratos/saladadefrutas.png"
                 )
