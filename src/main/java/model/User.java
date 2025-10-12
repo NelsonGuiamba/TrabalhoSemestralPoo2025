@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "Usuarios")
-@Table(name = "Usuarios", uniqueConstraints = @UniqueConstraint(columnNames = "name"))
+@Table(name = "Usuarios", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,6 +13,7 @@ public class User {
 
     private String name;
     private String password;
+    private String email;
     @Enumerated(EnumType.STRING)
     private UserType type;
     @OneToMany(mappedBy = "client")
@@ -25,10 +26,11 @@ public class User {
 
     }
 
-    public User(String name, String password, UserType type) {
+    public User(String name, String email, String password, UserType type) {
         this.name = name;
         this.password = password;
         this.type = type;
+        this.email = email;
     }
 
     public int getId() {
@@ -61,5 +63,13 @@ public class User {
 
     public void setType(UserType type) {
         this.type = type;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

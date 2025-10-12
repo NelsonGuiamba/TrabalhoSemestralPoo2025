@@ -17,14 +17,19 @@ public class ReservaDAO extends BaseDAO<Reserva, Integer> {
 
 
     public List<Reserva> getReservasDeHoje(){
+        return getReservasDoDia(LocalDate.now());
+    }
+
+    public List<Reserva> getReservasDoDia(LocalDate data){
         String hql = """
                     SELECT r 
                     FROM Reserva r
-                    WHERE r.dataInicio >= :inicio AND r.dataFim <= :fim                    
+                    WHERE r.dataInicio >= :inicio AND r.dataFim <= :fim     
+                        AND r.status = 'ACTIVA'               
                 """;
 
         try(Session session = HibernateUtil.getSessionFactory().openSession()) {
-            LocalDateTime dataInicio = LocalDate.now().atStartOfDay();
+            LocalDateTime dataInicio = data.atStartOfDay();
             List<Reserva> reservas = session.createQuery(hql, Reserva.class)
                     .setParameter("inicio", dataInicio)
                     .setParameter("fim", dataInicio.plusDays(1))

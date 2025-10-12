@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="mainPane" fx:id="panePrincial" maxHeight="720.0" maxWidth="1256.0" prefHeight="720.0" prefWidth="1256.0" styleClass="mainPane" stylesheets="@css/login.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterController">
+   <children>
+      <AnchorPane id="centerPane" fx:id="centerPane" layoutX="237.0" layoutY="58.0" prefHeight="610.0" prefWidth="792.0" style="-fx-background-color: white;">
+         <children>
+            <VBox layoutX="73.0" layoutY="30.0" prefHeight="74.0" prefWidth="650.0">
+               <children>
+                  <Label prefHeight="44.0" prefWidth="412.0" text="Bem Vindo">
+                     <font>
+                        <Font name="Raleway Regular" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="30.0" prefWidth="590.0" text="Ficamos felizes por tê-lo aqui, complete o">
+                     <font>
+                        <Font name="Montserrat Light" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="27.0" prefWidth="657.0" text="seu registo e descubra o sabor de momentos especiais.">
+                     <font>
+                        <Font name="Montserrat Light" size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="79.0" layoutY="173.0" spacing="25.0">
+               <children>
+                  <VBox prefHeight="49.0" prefWidth="371.0" spacing="5.0">
+                     <children>
+                        <Label text="Nome">
+                           <font>
+                              <Font name="Raleway Regular" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField id="txtNome" fx:id="txtNome" onKeyTyped="#validarNome" prefHeight="26.0" prefWidth="0.0" promptText="Digite o seu nome" styleClass="textfield">
+                           <font>
+                              <Font name="Montserrat Regular" size="18.0" />
+                           </font>
+                        </TextField>
+                        <Label fx:id="lbErroNome" text="Nome deve ter 5 caracteres" textFill="#e42e2e">
+                           <font>
+                              <Font name="Raleway Regular" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="49.0" prefWidth="371.0" spacing="5.0">
+                     <children>
+                        <Label text="Email">
+                           <font>
+                              <Font name="Raleway Regular" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField id="txtEmail" fx:id="txtEmail" onKeyTyped="#validarEmail" prefHeight="26.0" prefWidth="0.0" promptText="Digite o seu email" styleClass="textfield">
+                           <font>
+                              <Font name="Montserrat Regular" size="18.0" />
+                           </font>
+                        </TextField>
+                        <Label fx:id="lbErroEmail" text="Nome deve ter 5 caracteres" textFill="#e42e2e">
+                           <font>
+                              <Font name="Raleway Regular" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="49.0" prefWidth="371.0" spacing="5.0">
+                     <children>
+                        <Label text="Password">
+                           <font>
+                              <Font name="Raleway Regular" size="18.0" />
+                           </font>
+                        </Label>
+                        <PasswordField id="pfPassword" fx:id="pfPassword" onKeyTyped="#validarPassword" promptText="Digite a sua palavra passe" styleClass="textfield">
+                           <font>
+                              <Font name="Montserrat Regular" size="18.0" />
+                           </font>
+                        </PasswordField>
+                        <Label fx:id="lbErroPassword" text="Nome deve ter 5 caracteres" textFill="#e42e2e">
+                           <font>
+                              <Font name="Raleway Regular" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="26.0" prefWidth="371.0" spacing="20.0">
+                     <children>
+                        <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#cadastrar" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" prefHeight="48.0" prefWidth="371.0" text="Cadastrar">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                        <HBox prefHeight="24.0" prefWidth="371.0" spacing="8.0">
+                           <children>
+                              <Label alignment="BOTTOM_RIGHT" contentDisplay="TOP" prefHeight="20.0" prefWidth="201.0" text="Já tem uma conta?">
+                                 <font>
+                                    <Font name="Raleway Regular" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="registerLink" onMouseClicked="#abrirAuth" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" text="Faça login agora" textFill="#ffb533">
+                                 <font>
+                                    <Font name="Raleway Regular" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="95.0" fitWidth="105.0" layoutX="27.0" layoutY="58.0" onMouseClicked="#abrirHome" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/LOGO.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

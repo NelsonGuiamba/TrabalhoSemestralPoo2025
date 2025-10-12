@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="container" alignment="CENTER" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" prefHeight="272.0" prefWidth="249.0" spacing="5.0" styleClass="pratoBox" stylesheets="@../css/fazerpedido.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.components.PratoController">
+   <children>
+      <ImageView fx:id="imagemView" fitHeight="120.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/image4.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lbTitulo" alignment="CENTER" prefHeight="82.0" prefWidth="202.0" text="Soupa picante de mariscos" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Montserrat Regular" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbPreco" alignment="CENTER" prefHeight="26.0" prefWidth="177.0" text="300 MT" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Montserrat ExtraLight" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</VBox>

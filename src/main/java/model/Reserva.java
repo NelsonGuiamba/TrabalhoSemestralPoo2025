@@ -72,4 +72,8 @@ public class Reserva {
     public void setStatus(ReservaStatus status) {
         this.status = status;
     }
+    @Override
+    public String toString() {
+        return "Reserva(mesa="+mesa+",start:"+dataInicio+",end:"+dataFim+",status:"+status+")";
+    }
 }

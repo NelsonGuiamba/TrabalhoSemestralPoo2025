@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1256.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
+   <children>
+      <ImageView fx:id="backgroundImage" fitHeight="720.0" fitWidth="1254.0" layoutX="2.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@view/images/menuElements/background.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="lbMenu" layoutX="720.0" layoutY="123.0" text="Menu" textFill="#f47920">
+         <font>
+            <Font name="Rough Rough" size="195.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Label>
+      <Label fx:id="lbDelicioso" layoutX="873.0" layoutY="250.0" text="DELICIOSO">
+         <font>
+            <Font name="Retro Team" size="60.0" />
+         </font>
+      </Label>
+      <Label layoutX="712.0" layoutY="466.0" text="Sanduiche BBQ">
+         <font>
+            <Font name="Retro Team" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="711.0" layoutY="517.0" text="Costelas de boi">
+         <font>
+            <Font name="Retro Team" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="713.0" layoutY="563.0" text="Peito de Frango">
+         <font>
+            <Font name="Retro Team" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="715.0" layoutY="601.0" text="Sobremesas deliciosas">
+         <font>
+            <Font name="Retro Team" size="30.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="220.0" fitWidth="220.0" layoutX="200.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@view/images/menuElements/QRCode.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="207.0" layoutY="484.0" text="Contacte-nos">
+         <font>
+            <Font name="Montserrat SemiBold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="124.0" layoutY="527.0" text="+258 820 969 206" textFill="#f47920">
+         <font>
+            <Font name="Montserrat SemiBold" size="40.0" />
+         </font>
+      </Label>
+      <Label layoutX="129.0" layoutY="574.0" text="www.slastnetwork.com">
+         <font>
+            <Font name="Montserrat Regular" size="30.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="37.0" fitWidth="150.0" layoutX="226.0" layoutY="626.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@view/images/menuElements/socialmedia2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="516.0" fitWidth="548.0" layoutX="740.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@view/images/menuElements/salada.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="336.0" layoutX="469.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="460.0" fitWidth="412.0" layoutX="441.0" layoutY="-33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@view/images/menuElements/outroPrato.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="296.0" fitWidth="304.0" layoutX="-13.0" layoutY="425.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@view/images/menuElements/pratoPreto.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="btNext" fitHeight="43.0" fitWidth="25.0" layoutX="1207.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+         <image>
+            <Image url="@view/images/menuElements/next.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

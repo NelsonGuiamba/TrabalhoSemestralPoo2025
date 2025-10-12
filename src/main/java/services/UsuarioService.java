@@ -11,50 +11,60 @@ import java.util.stream.Collectors;
 public class UsuarioService {
     private final UserDAO dao = new UserDAO();
     private int retriesCount = 0;
+    public static int EMAILEXISTS = -1;
+    public static int OTHERERROR = -2;
+    public static int PASSWORDERROR = -3;
+    public static int LOGINERROR = -4;
     private User user = null;
+    private UserType userType = null;
 
-    public boolean login(String name, String password) {
-        if (user != null)
-            return true;
-        if (retriesCount < 5) {
-            user = dao.authenticateUser(name, password);
-            if (user == null) {
-                retriesCount++;
-                return false;
-            } else {
-                return true;
+    public int login(String email, String password) {
+        for(User user : dao.findAll()) {
+            if(user.getEmail().equals(email)) {
+                if(user.getPassword().equals(password)) {
+                    userType = user.getType();
+                    return user.getId();
+                }
+                return PASSWORDERROR;
             }
-        } else {
-            System.out.println("Limite de tentativas execedido");
-            return false;
         }
+        return LOGINERROR;
     }
 
     public void logout() {
         user = null;
     }
 
-    public boolean register(String name, String password, UserType userType) {
+    public int register(String name, String password, String email, UserType userType) {
         if (name.length() < 4) {
             System.out.println("Nome curto");
-            return false;
-        } else if (password.length() < 5) {
+            return OTHERERROR;
+        } else if (password.length() < 4) {
             System.out.println("Palavra passe curta");
-            return false;
+            return OTHERERROR;
         }
         // Nem todos podem criar usuarios do tipo admin ou worke
         // Todos podem criar usuarios clientes
         if (user == null && userType != UserType.CLIENT) {
             System.out.println("Sem permissao para criar usuario ");
-            return false;
+            return OTHERERROR;
         } else if (user != null && !user.getType().equals(UserType.ADMIN) && !userType.equals(UserType.CLIENT)) {
             System.out.println("Sem permissao para criar usuario");
-            return false;
+            return OTHERERROR;
         }
 
-        dao.save(new User(name, password, userType));
+        for(User user: dao.findAll()){
+                System.out.println(user.getEmail() + " vs " + email);
+            if(user.getEmail().equals(email)){
+                return EMAILEXISTS;
+            }
+        }
 
-        return true;
+        Integer id = dao.save(new User(name, email, password, userType));
+        if(id == null) {
+            return OTHERERROR;
+        }
+        return id;
     }
 
     public boolean removerUsuario(int id) {
@@ -92,4 +102,7 @@ public class UsuarioService {
     }
 
 
+    public UserType getUserType() {
+        return userType;
+    }
 }

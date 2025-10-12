@@ -16,6 +16,12 @@ import java.util.ArrayList;
 
 public class TestReserva {
     public static void main(String[] args) {
+        PedidoDAO pedidoDAO = new PedidoDAO();
+        for(PedidoItem p : pedidoDAO.findByIdWithItems(2).get().getItems()) {
+            System.out.println(p.getMenuItem().getNomeDoPrato());
+        }
+    }
+    public static void mainn(String[] args) {
 
         // usuarios
         UserDAO userDAO = new UserDAO();

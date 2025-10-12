@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="153.0" prefWidth="153.0" styleClass="mainPane" stylesheets="@../css/reserva.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.components.MesaController">
+   <children>
+      <VBox alignment="CENTER" fillWidth="false" prefHeight="0.0" prefWidth="0.0" spacing="10.0" styleClass="activeSidePanel" StackPane.alignment="BOTTOM_LEFT">
+         <children>
+            <Label fx:id="lbMesa" alignment="CENTER" prefHeight="44.0" prefWidth="163.0" text="1" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Montserrat Regular" size="32.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbPessoas" text="2 pessoas" textFill="#abbbc2">
+               <font>
+                  <Font name="Raleway Regular" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <ImageView fitHeight="34.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
+         <image>
+            <Image url="@../images/IconMarked.png" />
+         </image>
+      </ImageView>
+   </children>
+</StackPane>

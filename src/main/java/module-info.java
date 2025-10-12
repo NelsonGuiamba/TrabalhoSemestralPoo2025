@@ -8,6 +8,7 @@ module org.example.trabalhosemestralpoo2025 {
     requires java.sql;
     requires java.persistence;
     requires java.naming;
+    requires java.desktop;
 
     // open to JavaFX
     opens org.example.trabalhosemestralpoo2025 to javafx.fxml;
@@ -16,4 +17,10 @@ module org.example.trabalhosemestralpoo2025 {
     opens model to org.hibernate.orm.core, javax.persistence;
 
     exports org.example.trabalhosemestralpoo2025;
+    opens view to javafx.fxml, javafx.graphics;
+    opens controller to javafx.fxml, javafx.graphics;
+    opens controller.components to javafx.fxml, javafx.graphics;
+    exports view;
+    exports controller;
+    exports controller.components;
 }
