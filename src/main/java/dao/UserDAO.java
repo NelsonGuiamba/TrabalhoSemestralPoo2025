@@ -7,8 +7,6 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import util.HibernateUtil;
 
-import java.util.List;
-
 public class UserDAO extends BaseDAO<User, Integer> {
 
     public UserDAO() {
@@ -28,4 +26,17 @@ public class UserDAO extends BaseDAO<User, Integer> {
             return null;
         }
     }
+
+    public User findUserByName(String nome) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = "FROM Usuarios u WHERE u.name = :nome";
+            return session.createQuery(hql, User.class)
+                    .setParameter("nome", nome)
+                    .uniqueResult(); // retorna null se não encontrar
+        } catch (Exception ex) {
+            System.out.println("Erro ao buscar usuário: " + ex.getMessage());
+            return null;
+        }
+    }
+
 }

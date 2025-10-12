@@ -16,6 +16,7 @@ public class PedidoItem {
 
     private int quantidade;
 
+    private double preco;
     public PedidoItem(){
     }
 
@@ -53,5 +54,13 @@ public class PedidoItem {
 
     public void increaseQuantidade(){
         this.quantidade += 1;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
 }

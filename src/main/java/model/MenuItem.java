@@ -23,10 +23,11 @@ public class MenuItem {
     private ItemCategory categoria;
     private String nomeDoPrato;
     private String descricao;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Ingrediente> ingredientes;
     private double preco;
     private int tempoPreparacao; // em segundos
+    private String imagem;
 
 
     public int getId() {
@@ -84,6 +85,12 @@ public class MenuItem {
     public void setTempoPreparacao(int tempoPreparacao) {
         this.tempoPreparacao = tempoPreparacao;
     }
-    
-    
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
 }

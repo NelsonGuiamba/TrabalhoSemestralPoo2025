@@ -28,7 +28,7 @@ public class Ingrediente {
     }
 
     public String getIngrediente() {
-        return ingrediente;
+        return ingrediente.toLowerCase().strip();
     }
 
     public void setIngrediente(String ingrediente) {

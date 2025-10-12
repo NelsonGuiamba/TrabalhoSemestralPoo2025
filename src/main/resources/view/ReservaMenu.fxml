@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="720.0" maxWidth="1256.0" prefHeight="720.0" prefWidth="1256.0" styleClass="sidePanels" stylesheets="@css/reservaMenu.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReservasMenuController">
+   <children>
+      <HBox layoutX="34.0" layoutY="21.0" prefHeight="95.0" prefWidth="1122.0" spacing="30.0">
+         <children>
+            <ImageView fitHeight="95.0" fitWidth="105.0" onMouseClicked="#abrirHome" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/LOGO.png" />
+               </image>
+            </ImageView>
+            <Label prefHeight="98.0" prefWidth="303.0" text="Minhas reservas" textFill="WHITE">
+               <font>
+                  <Font name="Raleway Bold" size="24.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="95.0" prefWidth="659.0">
+               <children>
+                  <Button id="btnConfirmar" fx:id="btnConfirmar" alignment="CENTER" mnemonicParsing="false" onAction="#adicionarReserva" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" prefHeight="42.0" prefWidth="254.0" styleClass="btnAdicionar" text="Adicionar reserva" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <AnchorPane fx:id="lbBigName" layoutY="145.0" prefHeight="594.0" prefWidth="1262.0" styleClass="mainPane">
+         <children>
+            <ScrollPane hbarPolicy="NEVER" layoutX="144.0" layoutY="41.0" style="-fx-background-color: #252836;">
+               <content>
+                  <FlowPane fx:id="flowPane" hgap="150.0" prefHeight="523.0" prefWidth="882.0" style="-fx-background-color: #252836;" vgap="50.0">
+                     <children>
+                        <VBox prefHeight="318.0" prefWidth="315.0" spacing="10.0" style="-fx-background-color: #1f1d2b; -fx-background-radius: 24px;">
+                           <children>
+                              <HBox prefHeight="82.0" prefWidth="282.0">
+                                 <children>
+                                    <Label fx:id="lbMesaNr" alignment="TOP_CENTER" prefHeight="70.0" prefWidth="68.0" style="-fx-background-color: #ffa300; -fx-background-radius: 18px;" text="4" textAlignment="CENTER" textFill="#1f1d2b">
+                                       <font>
+                                          <Font name="Raleway Bold" size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="72.0" prefWidth="208.0">
+                                       <children>
+                                          <Label fx:id="lbMesaNome" alignment="BOTTOM_CENTER" prefHeight="24.0" prefWidth="79.0" style="-fx-background-color: rgba(255, 163, 0, 0.15); -fx-background-radius: 50px;" text="Mesa 4" textFill="#ffa100">
+                                             <font>
+                                                <Font name="Montserrat Regular" size="18.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="282.0" spacing="10.0">
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@images/calendar.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="lbData" prefHeight="40.0" prefWidth="173.0" text="15 de janeiro de 2025" textFill="#abbbc2">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="30.0" prefHeight="36.0" prefWidth="282.0" spacing="10.0">
+                                       <children>
+                                          <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@images/clock.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="lbDuracao" prefHeight="40.0" prefWidth="173.0" text="19:00 • 2h" textFill="#abbbc2">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="81.0" prefHeight="36.0" prefWidth="282.0" spacing="10.0">
+                                       <children>
+                                          <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@images/users.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="lbPessoas" prefHeight="40.0" prefWidth="173.0" text="6 pessoas" textFill="#abbbc2">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <Button mnemonicParsing="false" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" prefHeight="34.0" prefWidth="346.0" styleClass="removerBtn" stylesheets="@css/fazerpedido.css" text="Cancelar Reserva" />
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="272.0" prefWidth="314.0" spacing="10.0" style="-fx-background-color: #1f1d2b; -fx-background-radius: 24px;">
+                           <children>
+                              <HBox prefHeight="82.0" prefWidth="282.0">
+                                 <children>
+                                    <Label fx:id="lbMesaNr1" alignment="TOP_CENTER" prefHeight="70.0" prefWidth="68.0" style="-fx-background-color: #ffa300; -fx-background-radius: 18px;" text="4" textAlignment="CENTER" textFill="#1f1d2b">
+                                       <font>
+                                          <Font name="Raleway Bold" size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="72.0" prefWidth="208.0">
+                                       <children>
+                                          <Label fx:id="lbMesaNome1" alignment="BOTTOM_CENTER" prefHeight="24.0" prefWidth="79.0" style="-fx-background-color: rgba(255, 163, 0, 0.15); -fx-background-radius: 50px;" text="Mesa 4" textFill="#ffa100">
+                                             <font>
+                                                <Font name="Montserrat Regular" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+                                 <children>
+                                    <HBox prefHeight="36.0" prefWidth="282.0" spacing="10.0">
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@images/calendar.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="lbData1" prefHeight="40.0" prefWidth="173.0" text="15 de janeiro de 2025" textFill="#abbbc2">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="30.0" prefHeight="36.0" prefWidth="282.0" spacing="10.0">
+                                       <children>
+                                          <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@images/clock.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="lbDuracao1" prefHeight="40.0" prefWidth="173.0" text="19:00 • 2h" textFill="#abbbc2">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="81.0" prefHeight="36.0" prefWidth="282.0" spacing="10.0">
+                                       <children>
+                                          <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@images/users.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="lbPessoas1" prefHeight="40.0" prefWidth="173.0" text="6 pessoas" textFill="#abbbc2">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </FlowPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

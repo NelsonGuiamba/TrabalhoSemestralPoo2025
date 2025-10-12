@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="pane" alignment="CENTER" prefHeight="153.0" prefWidth="153.0" spacing="10.0" styleClass="sidePanels" stylesheets="@../css/reserva.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.components.MesaController">
+   <children>
+      <Label fx:id="lbMesa" alignment="CENTER" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" prefHeight="44.0" prefWidth="163.0" text="2" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Montserrat Regular" size="32.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbPessoas" text="6 pessoas" textFill="#abbbc2">
+         <font>
+            <Font name="Raleway Regular" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</VBox>

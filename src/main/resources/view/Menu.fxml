@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainPane" maxHeight="720.0" maxWidth="1256.0" prefHeight="720.0" prefWidth="1256.0" styleClass="mainPane" stylesheets="@css/fazerpedido.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
+   <center>
+      <AnchorPane prefHeight="720.0" prefWidth="766.0" styleClass="mainPane" BorderPane.alignment="CENTER">
+         <children>
+            <HBox layoutX="13.0" layoutY="19.0" prefHeight="0.0" prefWidth="818.0">
+               <children>
+                  <ImageView fitHeight="95.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" styleClass="linkElement" onMouseClicked="#abrirHome">
+                     <image>
+                        <Image url="@images/LOGO.png" />
+                     </image>
+                  </ImageView>
+                  <VBox prefHeight="86.0" prefWidth="357.0">
+                     <children>
+                        <Label fx:id="lbUserName" onMouseClicked="#toggleSide" text="Meu nome completo aqui" textFill="WHITE">
+                           <font>
+                              <Font name="Raleway Regular" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbDataHoje" prefHeight="18.0" prefWidth="286.0" text="Data de hoje por extenso" textFill="#e0e6e9">
+                           <font>
+                              <Font name="Montserrat Medium Italic" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="330.0" spacing="10.0" style="-fx-background-color: #2d303e;">
+                     <children>
+                        <ImageView fitHeight="45.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/IconSearch.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <TextField fx:id="searchInput" onKeyTyped="#filtarPratos" prefHeight="43.0" prefWidth="257.0" promptText="Procure por pratos ">
+                           <font>
+                              <Font name="Montserrat Regular" size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                        </TextField>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox layoutX="130.0" layoutY="121.0" prefHeight="50.0" prefWidth="540.0" spacing="30.0">
+               <children>
+                  <Label fx:id="lbEntrada" onMouseClicked="#toggleEntrada" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" styleClass="linkElement" text="Entrada" textFill="#ffa300">
+                     <font>
+                        <Font name="Montserrat Regular" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbPrato" onMouseClicked="#togglePrato" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" styleClass="linkElement" text="Prato principal" textFill="WHITE">
+                     <font>
+                        <Font name="Montserrat Regular" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbSobremesa" onMouseClicked="#toggleSobremesa" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" styleClass="linkElement" text="Sobremesas" textFill="WHITE">
+                     <font>
+                        <Font name="Montserrat Regular" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <ScrollPane hbarPolicy="NEVER" layoutX="127.0" layoutY="221.0" prefHeight="475.0" prefWidth="1018.0" styleClass="mainPane">
+               <content>
+                  <FlowPane fx:id="listaMenu" hgap="100.0" prefHeight="1378.0" prefWidth="1012.0" styleClass="mainPane" vgap="40.0">
+                     <children>
+                        <VBox alignment="CENTER" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" prefHeight="251.0" prefWidth="249.0" spacing="5.0" styleClass="pratoBox">
+                           <children>
+                              <ImageView fitHeight="120.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/image4.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="55.0" prefWidth="202.0" text="Soupa picante de mariscos" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Montserrat Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="90.0" text="300 MT" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Montserrat ExtraLight" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="251.0" prefWidth="249.0" spacing="5.0" styleClass="pratoBox">
+                           <children>
+                              <ImageView fitHeight="120.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/image4.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="55.0" prefWidth="202.0" text="Soupa picante de mariscos" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Montserrat Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="90.0" text="300 MT" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Montserrat ExtraLight" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="251.0" prefWidth="249.0" spacing="5.0" styleClass="pratoBox">
+                           <children>
+                              <ImageView fitHeight="120.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/image4.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="55.0" prefWidth="202.0" text="Soupa picante de mariscos" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Montserrat Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="90.0" text="300 MT" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Montserrat ExtraLight" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="251.0" prefWidth="249.0" spacing="5.0" styleClass="pratoBox">
+                           <children>
+                              <ImageView fitHeight="120.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/image4.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="55.0" prefWidth="202.0" text="Soupa picante de mariscos" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Montserrat Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="90.0" text="300 MT" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Montserrat ExtraLight" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="251.0" prefWidth="249.0" spacing="5.0" styleClass="pratoBox">
+                           <children>
+                              <ImageView fitHeight="120.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/image4.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="55.0" prefWidth="202.0" text="Soupa picante de mariscos" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Montserrat Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="90.0" text="300 MT" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Montserrat ExtraLight" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="251.0" prefWidth="249.0" spacing="5.0" styleClass="pratoBox">
+                           <children>
+                              <ImageView fitHeight="120.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/image4.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="55.0" prefWidth="202.0" text="Soupa picante de mariscos" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Montserrat Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="90.0" text="300 MT" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Montserrat ExtraLight" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="251.0" prefWidth="249.0" spacing="5.0" styleClass="pratoBox">
+                           <children>
+                              <ImageView fitHeight="120.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/image4.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="55.0" prefWidth="202.0" text="Soupa picante de mariscos" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Montserrat Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="90.0" text="300 MT" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Montserrat ExtraLight" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="251.0" prefWidth="249.0" spacing="5.0" styleClass="pratoBox">
+                           <children>
+                              <ImageView fitHeight="120.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/image4.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="55.0" prefWidth="202.0" text="Soupa picante de mariscos" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Montserrat Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="90.0" text="300 MT" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Montserrat ExtraLight" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="251.0" prefWidth="249.0" spacing="5.0" styleClass="pratoBox">
+                           <children>
+                              <ImageView fitHeight="120.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/image4.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="55.0" prefWidth="202.0" text="Soupa picante de mariscos" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Montserrat Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="90.0" text="300 MT" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Montserrat ExtraLight" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="251.0" prefWidth="249.0" spacing="5.0" styleClass="pratoBox">
+                           <children>
+                              <ImageView fitHeight="120.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/image4.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="55.0" prefWidth="202.0" text="Soupa picante de mariscos" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="Montserrat Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="26.0" prefWidth="90.0" text="300 MT" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Montserrat ExtraLight" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </FlowPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

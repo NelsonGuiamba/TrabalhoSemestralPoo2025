@@ -1,6 +1,5 @@
 .label{
     -fx-font-family: Montserrat;
-    -fx-text-fill: white;
 }
 #mainPane{
     -fx-background-image: url("../images/Background.jpg");
@@ -14,11 +13,24 @@
     -fx-font-size: 24px;
     -fx-text-fill: white;
 }
+
 .menuTitles:hover{
     -fx-text-fill: #ffa300;
     -fx-underline: true;
+    -fx-cursor: hand;
 }
 
+.menuTitle{
+    transition: -fx-text-fill 0.4s ease-in-out;
+    -fx-font-size: 24px;
+    -fx-text-fill: #ffa300;
+    -fx-font-family: "Montserrat ExtraBold";
+}
+
+.menuTitle:hover{
+    -fx-text-fill: white;
+    -fx-underline: true;
+}
 .btn{
     -fx-font-family: Montserrat;
     -fx-font-size: 36px;

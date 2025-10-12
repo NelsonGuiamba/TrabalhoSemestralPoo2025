@@ -1,10 +1,11 @@
-#mainPane{
-    -fx-background-image: url("../images/Background.jpg");
-    -fx-background-repeat: no-repeat;
-    -fx-background-size: 100% 100%;
-    -fx-background-position: center center;
+.mainPane{
+    -fx-background-color: #252836;
 }
 
+#centerPane{
+    -fx-background-color: #1f1d2b;
+    -fx-background-radius: 24px;
+}
 .textfield {
     -fx-background-color: transparent;
     -fx-background-insets: 0;
@@ -27,6 +28,11 @@
     -fx-border-color: transparent transparent rgba(220, 142, 0, 0.5) transparent;
 }
 
+.textfield.invalid {
+    -fx-border-color: transparent transparent #e42e2e transparent;
+    -fx-text-fill: #e42e2e;
+}
+
 #loginBtn{
     -fx-font-family: Raleway;
     -fx-font-size: 24px;
@@ -38,7 +44,24 @@
     -fx-border-color: #ffa300;
     -fx-border-style: solid;
 }
+#loginBtn.processing {
+    -fx-font-family: Raleway;
+    -fx-font-size: 24px;
+    -fx-background-color: #d3d3d3;
+    -fx-background-radius: 24px;
+    -fx-text-fill: #666666;
+    -fx-border-radius: 24px;
+    -fx-border-width: 4px;
+    -fx-border-color: #d3d3d3;
+    -fx-border-style: solid;
+    -fx-cursor: wait;
+}
 
 #registerLink:hover,#loginBtn:hover {
     -fx-underline: true;
+}
+.linkElement:hover{
+    -fx-underline: true;
+    -fx-text-fill: #ffa300;
+    -fx-cursor: hand;
 }

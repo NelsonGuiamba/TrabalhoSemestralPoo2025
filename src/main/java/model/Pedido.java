@@ -29,10 +29,12 @@ public class Pedido {
     private User worker;
     @Column(nullable = false, updatable = false)
     private LocalDateTime dataCompra = LocalDateTime.now();
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "mesa_id", nullable = true)
     private Mesa mesa;
     @Enumerated(EnumType.STRING)
     private PedidoStatus status;
+    private boolean eTakeway = false;
 
     public Pedido() {
 
@@ -92,5 +94,12 @@ public class Pedido {
 
     public void setStatus(PedidoStatus status) {
         this.status = status;
+    }
+
+    public boolean isTakeway() {
+        return eTakeway;
+    }
+    public void setTakeway(boolean eTakeway) {
+        this.eTakeway = eTakeway;
     }
 }

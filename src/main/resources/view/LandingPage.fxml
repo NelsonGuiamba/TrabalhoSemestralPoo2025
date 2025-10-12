@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,29 +11,29 @@
 
 <AnchorPane fx:id="mainPane" maxHeight="720.0" maxWidth="1256.0" prefHeight="720.0" prefWidth="1256.0" stylesheets="@css/landing.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LandingControl">
    <children>
-      <ImageView fitHeight="104.0" fitWidth="143.0" layoutX="70.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="104.0" fitWidth="143.0" layoutX="70.0" layoutY="36.0" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/LOGO.png" />
          </image>
       </ImageView>
-      <HBox layoutX="358.0" layoutY="74.0" prefHeight="30.0" prefWidth="554.0" spacing="30.0">
+      <HBox fx:id="menuLinks" layoutX="344.0" layoutY="74.0" prefHeight="30.0" prefWidth="866.0" spacing="30.0">
          <children>
-            <Label onMouseEntered="#changeToClicable" onMouseExited="#revertLink" styleClass="menuTitles" text="HOME" textFill="WHITE">
+            <Label onMouseEntered="#changeToClicable" onMouseExited="#revertLink" styleClass="menuTitle" text="HOME" textFill="WHITE">
                <font>
                   <Font name="Montserrat Bold" size="3.0" />
                </font>
             </Label>
-            <Label onMouseEntered="#changeToClicable" onMouseExited="#revertLink" styleClass="menuTitles" text="MENU" textFill="WHITE">
+            <Label onMouseClicked="#abrirMenu" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" styleClass="menuTitles" text="MENU" textFill="WHITE">
                <font>
                   <Font name="Montserrat Regular" size="18.0" />
                </font>
             </Label>
-            <Label onMouseEntered="#changeToClicable" onMouseExited="#revertLink" styleClass="menuTitles" text="RESERVAR" textFill="WHITE">
+            <Label onMouseClicked="#abrirRegister" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" styleClass="menuTitles" text="RESERVAR" textFill="WHITE">
                <font>
                   <Font name="Montserrat Regular" size="18.0" />
                </font>
             </Label>
-            <Label onMouseEntered="#changeToClicable" onMouseExited="#revertLink" styleClass="menuTitles" text="CONTACTO" textFill="WHITE">
+            <Label onMouseClicked="#abrirContacto" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" styleClass="menuTitles" text="SOBRE NOS" textFill="WHITE">
                <font>
                   <Font name="Montserrat Regular" size="18.0" />
                </font>
@@ -42,7 +43,7 @@
       <ImageView fitHeight="533.0" fitWidth="477.0" layoutX="-69.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
 <!--         ignore a mensagem de erro a seguir vai funcionar na mesma-->
           <image>
-            <Image url="@images/Prato%20vermelho.png" />
+            <Image url="@images/Prato vermelho.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="495.0" fitWidth="377.0" layoutX="862.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
@@ -66,36 +67,39 @@
       </Label>
       <VBox layoutX="405.0" layoutY="420.0">
          <children>
-            <Label text="Descubra o sabor que transforma cada refeição ">
+            <Label text="Descubra o sabor que transforma cada refeição " textFill="WHITE">
                <font>
                   <Font name="Montserrat Regular" size="18.0" />
                </font>
             </Label>
-            <Label text="em um momento especial">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label text="Ingredientes frescos, pratos preparados com">
+            <Label text="em um momento especial" textFill="WHITE">
                <font>
                   <Font name="Montserrat Regular" size="18.0" />
                </font>
             </Label>
-            <Label text="carrinho e um toque unico que conquista">
+            <Label text="Ingredientes frescos, pratos preparados com" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Montserrat Regular" size="18.0" />
                </font>
             </Label>
-            <Label text="todos paladares">
+            <Label text="carrinho e um toque unico que conquista" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Montserrat Regular" size="18.0" />
+               </font>
+            </Label>
+            <Label text="todos paladares" textFill="WHITE">
+               <font>
+                  <Font name="Montserrat Regular" size="18.0" />
                </font>
             </Label>
          </children>
       </VBox>
-      <Label alignment="CENTER" layoutX="530.0" layoutY="574.0" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" prefHeight="70.0" prefWidth="225.0" styleClass="btn" text="Peça Agora">
+      <Label alignment="CENTER" layoutX="530.0" layoutY="574.0" onMouseClicked="#abrirFazerPedido" onMouseEntered="#changeToClicable" onMouseExited="#revertLink" prefHeight="72.0" prefWidth="264.0" styleClass="btn" text="Peça Agora">
          <font>
             <Font name="Montserrat Medium" size="10.0" />
-         </font></Label>
+         </font>
+         <padding>
+            <Insets left="4.0" right="4.0" />
+         </padding></Label>
    </children>
 </AnchorPane>
