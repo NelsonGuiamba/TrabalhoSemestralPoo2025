@@ -219,6 +219,12 @@ public class AppInitializer {
         user.setName("Ana");
         userDAO.save(user);
 
+        user.setType(UserType.ADMIN);
+        user.setPassword("a12345");
+        user.setEmail("admin@gmail.com");
+        user.setName("admin");
+        userDAO.save(user);
+
         MesaDAO mesaDAO = new MesaDAO();
         for(Integer i : List.of(4,4,8,8,8,10,12)){
             Mesa mesa = new Mesa();
