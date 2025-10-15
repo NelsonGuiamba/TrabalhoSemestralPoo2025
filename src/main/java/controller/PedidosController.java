@@ -39,6 +39,7 @@ import java.util.*;
 import java.util.function.UnaryOperator;
 
 public class PedidosController implements Initializable {
+    public ScrollPane scrollMenu;
     @FXML
     protected TextField qtdInput;
     @FXML
@@ -276,6 +277,7 @@ public class PedidosController implements Initializable {
         } else {
             Utils.adicionarStyle(lbEntrada, "active");
         }
+        scrollMenu.setVvalue(0);
     }
 
     public void togglePrato(MouseEvent mouseEvent) {
@@ -307,6 +309,7 @@ public class PedidosController implements Initializable {
             Utils.adicionarStyle(lbPrato, "active");
         }
         checkEmpty();
+        scrollMenu.setVvalue(0);
     }
 
     public void toggleSobremesa(MouseEvent mouseEvent) {
@@ -338,6 +341,7 @@ public class PedidosController implements Initializable {
             Utils.adicionarStyle(lbSobremesa, "active");
         }
         checkEmpty();
+        scrollMenu.setVvalue(0);
     }
 
     public void filtarPratos(KeyEvent keyEvent) {
@@ -506,6 +510,7 @@ public class PedidosController implements Initializable {
                 @Override
                 protected Integer call() throws Exception {
                     try {
+                        Thread.sleep(2000);
                         if (AppContext.getInstance().isUserType(UserType.CLIENT))
                             return service.criarPedidoTakeway(
                                     AppContext.getInstance().getUsuarioLogado()
@@ -540,6 +545,8 @@ public class PedidosController implements Initializable {
                     Alert alert = Utils.criarAlerta(Alert.AlertType.INFORMATION);
                     alert.setTitle("Sucesso");
                     alert.setHeaderText("Pedido realizado com sucesso");
+                    if (AppContext.getInstance().isUserType(UserType.CLIENT))
+                        alert.setContentText("Ao levantar o pedido diga o seu email");
                     alert.showAndWait();
                     cartItems.clear();
                     renderCart();

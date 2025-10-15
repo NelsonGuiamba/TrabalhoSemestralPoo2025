@@ -353,6 +353,7 @@ public class PedidoService {
             String hql = """
             FROM Pedido p
             LEFT JOIN FETCH p.mesa m
+            LEFT JOIN FETCH p.client
             WHERE p.status = 'PENDENTE'
               AND p.dataCompra BETWEEN :inicio AND :fim
         """;

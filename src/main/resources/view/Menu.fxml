@@ -85,7 +85,7 @@
                   </Label>
                </children>
             </HBox>
-            <ScrollPane hbarPolicy="NEVER" layoutX="127.0" layoutY="221.0" prefHeight="475.0" prefWidth="1018.0" styleClass="mainPane">
+            <ScrollPane fx:id="scrollMenu" hbarPolicy="NEVER" layoutX="127.0" layoutY="221.0" prefHeight="475.0" prefWidth="1018.0" styleClass="mainPane">
                <content>
                   <FlowPane fx:id="listaMenu" hgap="100.0" prefHeight="1378.0" prefWidth="1012.0" styleClass="mainPane" vgap="40.0">
                      <children>

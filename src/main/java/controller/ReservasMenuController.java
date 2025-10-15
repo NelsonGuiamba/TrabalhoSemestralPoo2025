@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import model.Reserva;
 import model.ReservaStatus;
 import services.ReservaService;
+import view.AppContext;
 
 import java.io.IOException;
 import java.net.URL;
@@ -71,7 +72,7 @@ public class ReservasMenuController implements Initializable {
         ReservaService service = new ReservaService();
         flowPane.getChildren().clear();
         // appini
-        for(Reserva r : service.getReservasDeUser(1)){
+        for(Reserva r : service.getReservasDeUser(AppContext.getInstance().getUsuarioLogado())){
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/components/reservaItem.fxml"));
             VBox reservaComp = null; // o VBox do FXML
             try {

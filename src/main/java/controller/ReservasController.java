@@ -164,6 +164,7 @@ public class ReservasController implements Initializable {
         System.out.println(selectedDuration);
 
         List<String> horarios = service.getHorariosDisponiveisParaMesa(selectedMesa, dataReserva.getValue(), selectedDuration);
+        System.out.println(horarios);
         listaHorarios.getChildren().clear();
         boolean hasShowed = false;
         for (String horario : horarios) {
@@ -257,6 +258,7 @@ public class ReservasController implements Initializable {
             Task<Integer> task = new Task<Integer>() {
                 @Override
                 protected Integer call() throws Exception {
+                    Thread.sleep(2000);
                     try {
                         // TODO : Appinitializer
                         return service.criarReserva(AppContext.getInstance().getUsuarioLogado(),

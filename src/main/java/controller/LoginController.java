@@ -52,6 +52,7 @@ public class LoginController implements Initializable {
     }
 
     public void abrirHome(MouseEvent event) throws IOException {
+        AppContext.getInstance().setRoute("Home");
         Parent root = FXMLLoader.load(getClass().getResource("/view/LandingPage.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -138,6 +139,7 @@ public class LoginController implements Initializable {
         Task<Integer> task = new Task<Integer>() {
             @Override
             protected Integer call() throws Exception {
+                Thread.sleep(2000);
                 try {
                     return service.login(email, password);
                 }catch (Exception e) {
@@ -156,7 +158,7 @@ public class LoginController implements Initializable {
 
         task.setOnSucceeded(e -> {
             isProcessing = false;
-            loginBtn.setText("Cadastar");
+            loginBtn.setText("Login");
             mainPane.setCursor(Cursor.DEFAULT);
             loginBtn.setCursor(Cursor.DEFAULT);
             Utils.removerStyle(loginBtn, "processing");
@@ -192,7 +194,10 @@ public class LoginController implements Initializable {
             alert.showAndWait();
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("/view/LandingPage.fxml"));
+                if(service.getUserType().equals(UserType.ADMIN))
+                    root = FXMLLoader.load(getClass().getResource("/view/TelaAdmin1.fxml"));
+                else
+                    root = FXMLLoader.load(getClass().getResource("/view/LandingPage.fxml"));
             } catch (IOException ex) {
                 System.out.println("Algo deu errado");
             }

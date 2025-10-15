@@ -95,6 +95,7 @@
 
 .radio-button {
     -fx-text-fill: white;
+    transition: -fx-text-fill 0.4s ease-in-out, -fx-background-color 0.4s ease-in-out;
 }
 
 .radio-button:hover .radio {
@@ -111,6 +112,7 @@
     -fx-border-width: 4px;
     -fx-border-color: #ffa300;
     -fx-border-style: solid;
+    transition: -fx-text-fill 0.4s ease-in-out, -fx-background-color 0.4s ease-in-out;
 }
 
 #btnConfirmar:hover {
@@ -141,8 +143,7 @@
     -fx-border-style: solid;
     -fx-text-fill: rgb(253, 42, 42);
     -fx-background-color: transparent;
-    transition: -fx-text-fill 0.4s ease-in-out;
-    transition: -fx-background-color 0.4s ease-in-out;
+    transition: -fx-text-fill 0.4s ease-in-out, -fx-background-color 0.4s ease-in-out;
 }
 
 .removerBtn:hover{

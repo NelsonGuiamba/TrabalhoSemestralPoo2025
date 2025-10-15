@@ -1,6 +1,8 @@
 package dao;
 
 import model.MenuItem;
+import org.hibernate.Session;
+import util.HibernateUtil;
 
 import java.util.List;
 
@@ -16,4 +18,24 @@ public class MenuItemDAO extends BaseDAO<MenuItem, Integer>{
         }
         return true;
     }
+
+
+    public MenuItem findByNameTempo(String nome, int tempoPreparacao) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = """
+            FROM MenuItem m
+            WHERE m.nomeDoPrato = :nome
+              AND m.tempoPreparacao = :tempo
+        """;
+
+            return session.createQuery(hql, MenuItem.class)
+                    .setParameter("nome", nome)
+                    .setParameter("tempo", tempoPreparacao)
+                    .uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }

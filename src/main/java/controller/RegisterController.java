@@ -168,6 +168,7 @@ public class RegisterController implements Initializable {
         Task<Integer> task = new Task<Integer>() {
             @Override
             protected Integer call() throws Exception {
+                Thread.sleep(2000);
                 try{
                     return service.register(nome, password, email, UserType.CLIENT);
                 }catch(Exception e){

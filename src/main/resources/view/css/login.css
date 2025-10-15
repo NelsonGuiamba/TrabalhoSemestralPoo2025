@@ -18,6 +18,7 @@
     -fx-prompt-text-fill: #dfdede;
 
     -fx-padding: 4 0 4 0;
+    transition: -fx-text-fill 0.4s ease-in-out, -fx-background-color 0.4s ease-in-out;
 }
 
 .textfield:hover {
@@ -43,6 +44,7 @@
     -fx-border-width: 4px;
     -fx-border-color: #ffa300;
     -fx-border-style: solid;
+    transition: -fx-text-fill 0.4s ease-in-out, -fx-background-color 0.4s ease-in-out;
 }
 #loginBtn.processing {
     -fx-font-family: Raleway;
@@ -59,6 +61,9 @@
 
 #registerLink:hover,#loginBtn:hover {
     -fx-underline: true;
+}
+.linkElement{
+    transition: -fx-text-fill 0.4s ease-in-out, -fx-background-color 0.4s ease-in-out;
 }
 .linkElement:hover{
     -fx-underline: true;

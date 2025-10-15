@@ -9,7 +9,9 @@ import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
@@ -20,6 +22,7 @@ import model.Reserva;
 import model.ReservaStatus;
 import services.PedidoService;
 import services.ReservaService;
+import util.Utils;
 import view.AppContext;
 
 import java.io.IOException;
@@ -29,6 +32,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class PedidosMenuController implements Initializable {
@@ -104,6 +108,36 @@ public class PedidosMenuController implements Initializable {
             controller.setDuracao(timeFormatter.format(p.getDataCompra()), df.format(hours));
             controller.getBtnCancelar().setText("Finalizar pedido");
             controller.getBtnCancelar().setOnAction(e -> {
+                if(p.isTakeway()) {
+                    TextInputDialog dialog = new TextInputDialog();
+                    dialog.setTitle("Vereficacao de pedido");
+                    dialog.setHeaderText("Digite o email do dono:");
+                    dialog.setContentText("Email:");
+
+                    dialog.getDialogPane().getStylesheets().add(
+                            getClass().getResource("/view/css/alerts.css").toExternalForm()
+                    );
+
+                    Optional<String> result = dialog.showAndWait();
+                    result.ifPresent(texto -> {
+                        if(texto.strip().equals(p.getClient().getEmail())){
+                            service.finalizarPedido(p.getId(), PedidoStatus.CONCLUIDO);
+                            Alert alert = Utils.criarAlerta(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Sucesso");
+                            alert.setHeaderText("Pedido confirmado com sucesso");
+                            alert.showAndWait();
+                            renderReservaItem();
+                        }else{
+                            Alert alert = Utils.criarAlerta(Alert.AlertType.ERROR);
+                            alert.setTitle("Erro");
+                            alert.setHeaderText("Email incorrecto");
+                            alert.setContentText("Por favor verifique o email e tente novamente");
+                            alert.showAndWait();
+                        }
+                    });
+                    return;
+                }
+
                 service.finalizarPedido(p.getId(), PedidoStatus.CONCLUIDO);
                 renderReservaItem();
             });

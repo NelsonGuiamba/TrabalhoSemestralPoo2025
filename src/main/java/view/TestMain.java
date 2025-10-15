@@ -1,11 +1,14 @@
 package view;
 
+import dao.UserDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.UserType;
+import services.UsuarioService;
 
 public class TestMain extends Application {
 
@@ -18,9 +21,11 @@ public class TestMain extends Application {
 //        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LandingPage.fxml"));
 //        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
 //        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Register.fxml"));
-        AppContext.getInstance().setUsuarioLogado(2);
-        AppContext.getInstance().setUser(UserType.WORKER);
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PedidoMenu.fxml"));
+//        AppContext.getInstance().setUsuarioLogado(1);
+//        AppContext.getInstance().setUser(UserType.CLIENT);
+        UserDAO userDAO = new UserDAO();
+        userDAO.findById(11);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LandingPage.fxml"));
 
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);

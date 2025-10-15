@@ -1,0 +1,71 @@
+.mainPane{
+    -fx-background-color: #252836;
+}
+
+#sidePanel{
+    -fx-background-color: #1f1d2b;
+}
+.sidePanel {
+    -fx-background-color: #1f1d2b;
+}
+
+.label{
+    -fx-font-family: Montserrat;
+}
+.textLight{
+    -fx-text-fill: #abbbc2;
+}
+
+.topStats{
+    -fx-background-color: #1f1d2b;
+    -fx-background-radius: 24px;
+}
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 6px;
+}
+
+.scroll-bar:vertical .track {
+    -fx-background-color: #e0e0e0;
+    -fx-background-radius: 3px;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #3f51b5;
+    -fx-background-radius: 6px;
+}
+
+.scroll-bar .increment-button, .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow {
+    -fx-background-color: transparent;
+}
+
+.chart-plot-background {
+    -fx-background-color: #1f1d2b;
+}
+
+.axis {
+    -fx-tick-label-fill: #abbbc2; /* Axis tick labels color */
+    -fx-font-size: 18px;
+    -fx-font-family: 'Raleway', sans-serif; /* Optional: keep consistent font */
+}
+
+.axis-label {
+    -fx-text-fill: #abbbc2;  /* Axis label text color */
+    -fx-font-size: 18px;
+    -fx-font-family: 'Raleway', sans-serif;
+}
+
+.chart-series-line {
+    -fx-stroke: #ffa300; /* Line color */
+    -fx-stroke-width: 2px; /* Line thickness */
+}
+
+.chart-legend-item-symbol {
+    -fx-background-color: #ffa300; /* Legend symbol color */
+}
+

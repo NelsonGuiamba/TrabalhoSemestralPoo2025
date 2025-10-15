@@ -39,6 +39,7 @@ import java.util.*;
 import java.util.function.UnaryOperator;
 
 public class MenuController implements Initializable {
+    public ScrollPane scrollMenu;
     @FXML
     protected TextField qtdInput;
     @FXML
@@ -193,9 +194,6 @@ public class MenuController implements Initializable {
             Image img = new Image(getClass().getResourceAsStream(item.getImagem()));
             controller.setImage(img);
             pratoComp.setUserData(item);
-            controller.getContainer().setOnMouseClicked(event -> {
-                this.addToCart("" + item.getId());
-            });
             listaMenu.getChildren().add(pratoComp);
         }
         lbEmpty = new Label("Nenhum item satisfaz a sua pesquisa");
@@ -274,6 +272,7 @@ public class MenuController implements Initializable {
         } else {
             Utils.adicionarStyle(lbEntrada, "active");
         }
+        scrollMenu.setVvalue(0);
     }
 
     public void togglePrato(MouseEvent mouseEvent) {
@@ -304,6 +303,7 @@ public class MenuController implements Initializable {
         } else {
             Utils.adicionarStyle(lbPrato, "active");
         }
+        scrollMenu.setVvalue(0);
         checkEmpty();
     }
 
@@ -336,6 +336,7 @@ public class MenuController implements Initializable {
             Utils.adicionarStyle(lbSobremesa, "active");
         }
         checkEmpty();
+        scrollMenu.setVvalue(0);
     }
 
     public void filtarPratos(KeyEvent keyEvent) {
@@ -501,6 +502,7 @@ public class MenuController implements Initializable {
             Task<Integer> task = new Task<Integer>() {
                 @Override
                 protected Integer call() throws Exception {
+                    Thread.sleep(2000);
                     try {
                         if (AppContext.getInstance().isUserType(UserType.CLIENT))
                             return service.criarPedidoTakeway(
@@ -552,6 +554,7 @@ public class MenuController implements Initializable {
     }
 
     public void abrirHome(MouseEvent event) throws IOException {
+        AppContext.getInstance().setRoute("Home");
         Parent root = FXMLLoader.load(getClass().getResource("/view/LandingPage.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

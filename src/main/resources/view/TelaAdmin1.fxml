@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainPane" maxHeight="720.0" maxWidth="1256.0" prefHeight="720.0" prefWidth="1256.0" styleClass="mainPane" stylesheets="@css/admin1.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminController1">
+   <center>
+      <AnchorPane prefHeight="720.0" prefWidth="766.0" styleClass="mainPane" BorderPane.alignment="CENTER">
+         <children>
+            <HBox layoutX="13.0" layoutY="19.0" prefHeight="0.0" prefWidth="818.0">
+               <children>
+                  <ImageView fitHeight="95.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" styleClass="linkElement">
+                     <image>
+                        <Image url="@images/LOGO.png" />
+                     </image>
+                  </ImageView>
+                  <VBox prefHeight="86.0" prefWidth="357.0">
+                     <children>
+                        <Label fx:id="lbUserName" text="Meu nome completo aqui" textFill="WHITE">
+                           <font>
+                              <Font name="Raleway Regular" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbDataHoje" prefHeight="18.0" prefWidth="286.0" text="Data de hoje por extenso" textFill="#e0e6e9">
+                           <font>
+                              <Font name="Montserrat Medium Italic" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox layoutX="128.0" layoutY="132.0" prefHeight="131.0" prefWidth="1104.0" spacing="20.0">
+               <children>
+                  <VBox prefHeight="131.0" prefWidth="274.0" styleClass="topStats">
+                     <padding>
+                        <Insets bottom="12.0" left="24.0" top="24.0" />
+                     </padding>
+                     <children>
+                        <Label prefHeight="34.0" prefWidth="203.0" styleClass="textLight" text="Receita Total">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
+                        <Label fx:id="lbReceita" prefHeight="66.0" prefWidth="228.0" text="30.000.000,00 MT" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="10.0" prefHeight="131.0" prefWidth="274.0" styleClass="topStats">
+                     <padding>
+                        <Insets bottom="12.0" left="24.0" top="24.0" />
+                     </padding>
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="227.0" styleClass="textLight" text="Pedidos atendidos">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbPedidos" prefHeight="66.0" prefWidth="228.0" text="123" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="304.0" layoutY="10.0" prefHeight="131.0" prefWidth="274.0" styleClass="topStats">
+                     <padding>
+                        <Insets bottom="12.0" left="24.0" top="24.0" />
+                     </padding>
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="227.0" styleClass="textLight" text="Clientes atendidos">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lbClientes" prefHeight="66.0" prefWidth="228.0" text="123" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <ScrollPane hbarPolicy="NEVER" layoutX="128.0" layoutY="295.0" prefHeight="412.0" prefWidth="880.0" styleClass="mainPane">
+              <content>
+                  <FlowPane hgap="20.0" prefHeight="418.0" prefWidth="878.0" styleClass="sidePanel" vgap="20.0">
+                     <children>
+                        <VBox prefHeight="418.0" prefWidth="860.0">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="184.0" text="Receita Diaria" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="40.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <LineChart fx:id="receitaLineChart" prefHeight="389.0" prefWidth="833.0">
+                                <xAxis>
+                                  <NumberAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </LineChart>
+                           </children>
+                        </VBox>
+                        <HBox prefHeight="362.0" prefWidth="832.0" styleClass="sidePanel" stylesheets="@css/admin1.css">
+                           <children>
+                              <VBox prefHeight="362.0" prefWidth="808.0" stylesheets="@css/barchart.css">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="358.0" text="Receita por Categoria" textFill="WHITE">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <BarChart fx:id="barChartCategoria" prefHeight="311.0" prefWidth="500.0">
+                                       <xAxis>
+                                          <CategoryAxis side="BOTTOM" />
+                                       </xAxis>
+                                       <yAxis>
+                                          <NumberAxis side="LEFT" />
+                                       </yAxis>
+                                    </BarChart>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="362.0" prefWidth="832.0" styleClass="sidePanel" stylesheets="@css/admin1.css">
+                           <children>
+                              <VBox prefHeight="362.0" prefWidth="808.0">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="358.0" text="Pratos mais vendidos" textFill="WHITE">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <PieChart fx:id="piechartVendidos" stylesheets="@css/piechart.css" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="459.0" prefHeight="362.0" prefWidth="832.0" styleClass="sidePanel" stylesheets="@css/admin1.css">
+                           <children>
+                              <VBox prefHeight="362.0" prefWidth="808.0" stylesheets="@css/barchart.css">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="420.0" text="Total de pedidos por trabalhador" textFill="WHITE">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <BarChart fx:id="barChartCategoria2" prefHeight="311.0" prefWidth="500.0">
+                                       <xAxis>
+                                          <CategoryAxis side="BOTTOM" />
+                                       </xAxis>
+                                       <yAxis>
+                                          <NumberAxis side="LEFT" />
+                                       </yAxis>
+                                    </BarChart>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </FlowPane>
+              </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

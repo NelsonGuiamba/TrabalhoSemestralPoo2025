@@ -1,0 +1,47 @@
+.chart-pie {
+    -fx-pie-label-visible: true;
+    -fx-pie-label-font-size: 18px;
+    -fx-text-fill: #abbbc2 !important;
+    -fx-font-family: 'Raleway', sans-serif;
+}
+
+.chart-pie-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #abbbc2 !important;
+    -fx-font-size: 18px;
+    -fx-opacity: 1 !important;
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+}
+
+.chart-legend-item {
+    -fx-text-fill: #ffffff;
+    -fx-font-family: 'Raleway', sans-serif;
+    -fx-font-size: 18px;
+}
+
+.chart-pie-color0 {
+    -fx-pie-color: #ffa300; /* pie slice color 0 */
+}
+
+.chart-pie-color1 {
+    -fx-pie-color: #06b6d4; /* pie slice color 1 */
+}
+
+.chart-pie-color2 {
+    -fx-pie-color: #10b981; /* pie slice color 2 */
+}
+
+.chart-pie-color3 {
+    -fx-pie-color: #8b5cf6;
+}
+
+.chart-pie-color4 {
+    -fx-pie-color: #ec4899;
+}
+
+.chart-pie-color5 {
+    -fx-pie-color: #72f623;
+}
