@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="mainPane" fx:id="panePrincial" maxHeight="720.0" maxWidth="1256.0" prefHeight="720.0" prefWidth="1256.0" styleClass="mainPane" stylesheets="@css/login.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterController">
+<AnchorPane id="mainPane" fx:id="panePrincial" maxHeight="720.0" maxWidth="1256.0" prefHeight="720.0" prefWidth="1256.0" styleClass="mainPane" stylesheets="@css/login.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterController">
    <children>
-      <AnchorPane id="centerPane" fx:id="centerPane" layoutX="237.0" layoutY="58.0" prefHeight="610.0" prefWidth="792.0" style="-fx-background-color: white;">
+      <AnchorPane id="centerPane" fx:id="centerPane" layoutX="232.0" layoutY="43.0" prefHeight="634.0" prefWidth="792.0" style="-fx-background-color: white;">
          <children>
             <VBox layoutX="73.0" layoutY="30.0" prefHeight="74.0" prefWidth="650.0">
                <children>
@@ -29,7 +35,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox layoutX="79.0" layoutY="173.0" spacing="25.0">
+            <VBox layoutX="73.0" layoutY="152.0" spacing="25.0">
                <children>
                   <VBox prefHeight="49.0" prefWidth="371.0" spacing="5.0">
                      <children>
@@ -69,7 +75,7 @@
                         </Label>
                      </children>
                   </VBox>
-                  <VBox prefHeight="49.0" prefWidth="371.0" spacing="5.0">
+                  <VBox prefHeight="129.0" prefWidth="371.0" spacing="5.0">
                      <children>
                         <Label text="Password">
                            <font>
@@ -81,7 +87,7 @@
                               <Font name="Montserrat Regular" size="18.0" />
                            </font>
                         </PasswordField>
-                        <Label fx:id="lbErroPassword" text="Nome deve ter 5 caracteres" textFill="#e42e2e">
+                        <Label fx:id="lbErroPassword" alignment="TOP_LEFT" prefHeight="63.0" prefWidth="290.0" text="Password nao pode estar vazio&#10;Password deve conter letras&#10;Password nao pode estar vazio&#10;Password deve conter numeros" textFill="#e42e2e">
                            <font>
                               <Font name="Raleway Regular" size="13.0" />
                            </font>

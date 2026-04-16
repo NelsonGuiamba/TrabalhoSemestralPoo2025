@@ -177,7 +177,7 @@ public class MenuController implements Initializable {
         //slideOut(sidePanel, mainPane);
         listaMenu.getChildren().clear();
         MenuItemDAO dao = new MenuItemDAO();
-        menuItems = dao.findAll();
+        menuItems = dao.findAllActive();
         for (MenuItem item : menuItems) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/components/pratoBox.fxml"));
             VBox pratoComp = null; // o VBox do FXML

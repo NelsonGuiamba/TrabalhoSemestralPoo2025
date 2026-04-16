@@ -89,33 +89,49 @@ public class LoginController implements Initializable {
 
     public boolean validarPassword(KeyEvent keyEvent) {
         String password = pfPassword.getText();
+        boolean hasText = false;
         if(password.isEmpty() || password.isBlank()) {
             lbErroPassword.setVisible(true);
             lbErroPassword.setText("Password nao pode estar vazio");
             Utils.adicionarStyle(lbErroPassword, "invalid");
-            return false;
+            hasText = true;
         }
         if(!password.matches(".*[0-9].*")){
-            lbErroPassword.setVisible(true);
-            lbErroPassword.setText("Password deve conter numeros");
-            Utils.adicionarStyle(lbErroPassword, "invalid");
-            return false;
+            if(hasText) {
+                lbErroPassword.setText(lbErroPassword.getText() + "\nPassword deve conter numeros");
+            }else {
+                lbErroPassword.setVisible(true);
+                lbErroPassword.setText("Password deve conter numeros");
+                Utils.adicionarStyle(lbErroPassword, "invalid");
+                hasText = true;
+            }
         }
         if(!password.matches(".*[a-zA-Z].*")){
-            lbErroPassword.setVisible(true);
-            lbErroPassword.setText("Password deve conter letras");
-            Utils.adicionarStyle(lbErroPassword, "invalid");
-            return false;
+            if(hasText) {
+                lbErroPassword.setText(lbErroPassword.getText() + "\nPassword deve conter letras");
+            }else {
+                lbErroPassword.setVisible(true);
+                lbErroPassword.setText("Password deve conter letras");
+                Utils.adicionarStyle(lbErroPassword, "invalid");
+                hasText = true;
+            }
         }
         if(password.length() < 4) {
-            lbErroPassword.setVisible(true);
-            lbErroPassword.setText("Password deve ter no minimo 4 caracteres");
-            Utils.adicionarStyle(lbErroPassword, "invalid");
-            return false;
+            if(hasText){
+                lbErroPassword.setText(lbErroPassword.getText() + "\nPassword deve ter no minimo 4 caracteres");
+            }else {
+                lbErroPassword.setVisible(true);
+                lbErroPassword.setText("Password deve ter no minimo 4 caracteres");
+                Utils.adicionarStyle(lbErroPassword, "invalid");
+                hasText = true;
+            }
         }
-        lbErroPassword.setVisible(false);
-        Utils.removerStyle(lbErroPassword, "invalid");
-        return true;
+        if(!hasText) {
+            lbErroPassword.setVisible(false);
+            Utils.removerStyle(lbErroPassword, "invalid");
+            return true;
+        }
+        return false;
     }
 
     @Override

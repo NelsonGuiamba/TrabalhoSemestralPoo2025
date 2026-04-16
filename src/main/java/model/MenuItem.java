@@ -28,6 +28,7 @@ public class MenuItem {
     private double preco;
     private int tempoPreparacao; // em segundos
     private String imagem;
+    private boolean active = true;
 
 
     public int getId() {
@@ -92,5 +93,13 @@ public class MenuItem {
 
     public void setImagem(String imagem) {
         this.imagem = imagem;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

@@ -69,3 +69,39 @@
     -fx-background-color: #ffa300; /* Legend symbol color */
 }
 
+.removerBtn{
+    -fx-font-size: 18px;
+    -fx-font-family: "Montserrat ExtraBold";
+    -fx-border-radius: 24px;
+    -fx-border-width: 3px;
+    -fx-border-color: #9f0712;
+    -fx-border-style: solid;
+    -fx-text-fill: rgb(253, 42, 42);
+    -fx-background-color: transparent;
+    transition: -fx-text-fill 0.4s ease-in-out;
+    transition: -fx-background-color 0.4s ease-in-out;
+}
+
+.removerBtn:hover {
+    -fx-text-fill: white;
+    -fx-underline: true;
+    -fx-background-color: transparent;
+    -fx-background-radius: 24px;
+    -fx-border-width: 3px;
+    -fx-border-radius: 24px;
+    -fx-cursor: hand;
+}
+
+.menuTitle{
+    transition: -fx-text-fill 0.4s ease-in-out;
+    -fx-font-size: 24px;
+    -fx-text-fill: white;
+    -fx-font-family: "Montserrat SemiBold";
+
+}
+
+.menuTitle:hover{
+    -fx-text-fill: #ffa300;
+
+    -fx-underline: true;
+}

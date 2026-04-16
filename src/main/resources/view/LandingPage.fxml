@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,7 +17,7 @@
             <Image url="@images/LOGO.png" />
          </image>
       </ImageView>
-      <HBox fx:id="menuLinks" layoutX="344.0" layoutY="74.0" prefHeight="30.0" prefWidth="866.0" spacing="30.0">
+      <HBox fx:id="menuLinks" layoutX="344.0" layoutY="74.0" prefHeight="30.0" prefWidth="608.0" spacing="30.0">
          <children>
             <Label onMouseEntered="#changeToClicable" onMouseExited="#revertLink" styleClass="menuTitle" text="HOME" textFill="WHITE">
                <font>
@@ -101,5 +102,6 @@
          <padding>
             <Insets left="4.0" right="4.0" />
          </padding></Label>
+      <Button fx:id="btnLogout" layoutX="1010.0" layoutY="63.0" mnemonicParsing="false" onAction="#fazerLogout" prefHeight="23.0" prefWidth="155.0" styleClass="removerBtn" text="Logout" />
    </children>
 </AnchorPane>

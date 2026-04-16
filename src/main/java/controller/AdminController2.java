@@ -1,11 +1,13 @@
 package controller;
 
-import controller.components.CartItemController;
-import controller.components.PratoController;
+import controller.components.PratoController2;
 import dao.MenuItemDAO;
-import javafx.animation.*;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,32 +18,38 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.ItemCategory;
 import model.MenuItem;
-import model.UserType;
-import services.PedidoService;
+import services.AdminMenuService;
 import util.Utils;
 import view.AppContext;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.function.UnaryOperator;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
-public class PedidosController implements Initializable {
+public class AdminController2 implements Initializable {
     public ScrollPane scrollMenu;
     @FXML
-    protected TextField qtdInput;
+    private TextField qtdInput;
     @FXML
     protected TextField searchInput;
     @FXML
@@ -70,14 +78,21 @@ public class PedidosController implements Initializable {
     protected Label lbIva, lbUserName, lbDataHoje;
     @FXML
     protected Button btnPagamento;
+    @FXML
+    protected TextField txtNome, txtPreco;
+    @FXML
+    protected ImageView imgAlterar;
+    @FXML
+    protected ComboBox<String> cbCategoria;
     protected Label lbEmpty;
     protected Map<String, String> cartItems;
     protected List<MenuItem> menuItems;
-    protected boolean wasVisibleCart = false;
-    protected boolean isProcessing = false;
-    @FXML
-    protected ComboBox<String> cbUser, cbMesa;
+    ;
     private Map<String, Integer> userMap;
+    protected AdminMenuService service;
+    private int currentEdit = -2;
+    private File currentFile;
+    boolean isVisible;
 
     public void changeToClicable(MouseEvent mouseEvent) {
         Node source = (Node) mouseEvent.getSource();
@@ -99,7 +114,7 @@ public class PedidosController implements Initializable {
         UnaryOperator<TextFormatter.Change> filter = change -> {
             String newText = change.getControlNewText();
             if (newText.matches("\\d*")) { // Apenas dígitos
-                if (newText.length() > 2)
+                if (newText.length() > 4)
                     return null;
                 if (newText.equals("0"))
                     return null;
@@ -113,29 +128,10 @@ public class PedidosController implements Initializable {
             source.setText("1");
         }
 
-
-        source.focusedProperty().addListener((obs, wasFocused, isNowFocused) -> {
-            if (!isNowFocused) { // perdeu o foco
-                if (source.getText().isEmpty()) {
-                    source.setText("1");
-                }
-                String newText = source.getText();
-                if (!key.equals("-1"))
-                    try {
-                        int num = Integer.parseInt(newText);
-                        if (num > 0) {
-                            cartItems.put(key, "" + num);
-                        }
-                    } catch (NumberFormatException e) {
-                        cartItems.put(key, "-1");
-                    }
-                renderMoney();
-            }
-        });
-
     }
 
     protected void slideIn(Pane rightPane, BorderPane borderPane) {
+        if (mainPane.getRight() != null) return;
         // Adiciona o painel primeiro
         borderPane.setRight(rightPane);
 
@@ -155,6 +151,7 @@ public class PedidosController implements Initializable {
     }
 
     protected void slideOut(Pane rightPane, BorderPane borderPane) {
+        if (mainPane.getRight() == null) return;
         double width = rightPane.getWidth();
 
         Timeline slideOut = new Timeline(
@@ -175,30 +172,7 @@ public class PedidosController implements Initializable {
         lbUserName.setText(AppContext.getInstance().getUserName());
         lbDataHoje.setText(dateFormatter.format(LocalDateTime.now()));
         slideOut(sidePanel, mainPane);
-        listaMenu.getChildren().clear();
-        MenuItemDAO dao = new MenuItemDAO();
-        menuItems = dao.findAllActive();
-        for (MenuItem item : menuItems) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/components/pratoBox.fxml"));
-            VBox pratoComp = null; // o VBox do FXML
-            try {
-                pratoComp = loader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            PratoController controller = loader.getController();
-
-            controller.setNome(item.getNomeDoPrato());
-            controller.setPreco(item.getPreco());
-            System.out.println(item.getImagem());
-            Image img = new Image(getClass().getResourceAsStream(item.getImagem()));
-            controller.setImage(img);
-            pratoComp.setUserData(item);
-            controller.getContainer().setOnMouseClicked(event -> {
-                this.addToCart("" + item.getId());
-            });
-            listaMenu.getChildren().add(pratoComp);
-        }
+        renderMenu();
         lbEmpty = new Label("Nenhum item satisfaz a sua pesquisa");
 
         lbEmpty.setFont(Font.font("Montserrat", 36));
@@ -212,31 +186,87 @@ public class PedidosController implements Initializable {
         lbEmpty.setManaged(false);
         listaMenu.getChildren().add(lbEmpty);
         cartItems = new HashMap<>();
-        renderWorker();
+        service = new AdminMenuService();
+        currentFile = null;
+        cbCategoria.getItems().add("Entrada");
+        cbCategoria.getItems().add("Prato principal");
+        cbCategoria.getItems().add("Sobremesas");
+        cbCategoria.setValue("Entrada");
     }
 
-    private void renderWorker() {
-        if (AppContext.getInstance().isUserType(UserType.WORKER)) {
-            PedidoService service = new PedidoService();
-            cbUser.getItems().clear();
-            userMap = service.getUsers();
-            for (Map.Entry<String, Integer> entry : userMap.entrySet()) {
-                cbUser.getItems().add(entry.getKey());
+    private void renderMenu() {
+        listaMenu.getChildren().clear();
+        MenuItemDAO dao = new MenuItemDAO();
+        menuItems = dao.findAll();
+        for (MenuItem item : menuItems) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/components/pratoBox2.fxml"));
+            VBox pratoComp = null; // o VBox do FXML
+            try {
+                pratoComp = loader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
-            System.out.println(userMap);
-            cbMesa.getItems().clear();
-            for (String mesa : service.getMesasDisponiveis())
-                cbMesa.getItems().add("Mesa " + mesa);
-            cbUser.valueProperty().addListener((observable, oldValue, newValue) -> {
-                Integer valor = userMap.get(newValue);
-                if (valor != null && valor > 0) {
-                    cbMesa.setValue("Mesa " + valor);
-                    cbMesa.setDisable(true);
-                } else {
-                    cbMesa.setDisable(false);
+            PratoController2 controller = loader.getController();
+
+            controller.setNome(item.getNomeDoPrato());
+            controller.setPreco(item.getPreco());
+            System.out.println(item.getImagem());
+            URL resourceUrl = getClass().getResource(item.getImagem());
+            if (resourceUrl != null) {
+                File file = null;
+                try {
+                    file = new File(resourceUrl.toURI());
+                    Image img = new Image(file.toURI().toString(), false);
+                    controller.setImage(img);
+                } catch (URISyntaxException e) {
+                    Image img = new Image(getClass().getResourceAsStream("/view/images/pratos/pratovazio.png"));
+                    controller.setImage(img);
+                }
+
+
+            } else {
+                Image img = new Image(getClass().getResourceAsStream("/view/images/pratos/pratovazio.png"));
+                controller.setImage(img);
+            }
+
+            pratoComp.setUserData(item);
+            controller.getContainer().setOnMouseClicked(event -> {
+                this.currentEdit = item.getId();
+                this.txtNome.setText(item.getNomeDoPrato());
+                this.txtPreco.setText("" + item.getPreco());
+                this.imgAlterar.setImage(controller.getImage());
+                slideIn(sidePanel, mainPane);
+            });
+            controller.getBtnDelete().setOnAction(e -> {
+                Alert confirmar = Utils.criarAlerta(Alert.AlertType.CONFIRMATION);
+                confirmar.setHeaderText("Voce deseja realmente alterar o status do prato?");
+                confirmar.setContentText("O prato "+item.getNomeDoPrato()+" sera alterado, mas voce pode reverter a alteracao a qualquer momento");
+                confirmar.showAndWait();
+                System.out.println();
+
+                if (confirmar.getResult() == ButtonType.OK) {
+                    boolean isActive = service.alterarStatus(item.getId());
+                    Alert alert = Utils.criarAlerta(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Sucesso");
+                    alert.setHeaderText("Prato alterado com sucesso");
+                    alert.showAndWait();
+                    if (isActive) {
+                        controller.getBtnDelete().setText("Desativar");
+                        Utils.removerStyle(controller.getBtnDelete(), "activar");
+                    } else {
+                        controller.getBtnDelete().setText("Activar");
+                        Utils.adicionarStyle(controller.getBtnDelete(), "activar");
+                    }
                 }
             });
 
+            if (item.isActive()) {
+                controller.getBtnDelete().setText("Desativar");
+            } else {
+                controller.getBtnDelete().setText("Activar");
+                Utils.adicionarStyle(controller.getBtnDelete(), "activar");
+            }
+            listaMenu.getChildren().add(pratoComp);
         }
     }
 
@@ -404,169 +434,89 @@ public class PedidosController implements Initializable {
         lbEmpty.setManaged(todosInvisiveis);
     }
 
-    protected void renderCart() {
-        listaCart.getChildren().clear();
-        boolean hasElements = false;
-        for (MenuItem item : menuItems) {
-            String key = "" + item.getId();
-            String value = cartItems.getOrDefault(key, "-1");
-            int qtd = Integer.parseInt(value);
-            if (qtd > 0) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/components/cartItem.fxml"));
-                VBox pratoComp = null; // o VBox do FXML
-                try {
-                    pratoComp = loader.load();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-                CartItemController controller = loader.getController();
-                System.out.println(item.getImagem());
-                Image img = new Image(getClass().getResourceAsStream(item.getImagem()));
-                controller.getImageView().setImage(img);
-                controller.getLbNomePrato().setText(item.getNomeDoPrato());
-                controller.getBtnRemover().setOnAction(e -> {
-                    cartItems.remove(key);
-                    renderCart();
-                });
-                controller.getQtdInput().setOnKeyTyped(e -> this.allowNumberOnly(key, e));
-                controller.getLbPreco().setText(String.format("%.2f", item.getPreco()) + " MT");
-                listaCart.getChildren().add(pratoComp);
-                hasElements = true;
-            }
-        }
-        if (hasElements) {
-            renderMoney();
-            if (!wasVisibleCart) {
-                slideIn(sidePanel, mainPane);
-                wasVisibleCart = true;
-            }
-        } else {
-            if (wasVisibleCart) {
-
-                slideOut(sidePanel, mainPane);
-                wasVisibleCart = false;
-            }
-        }
+    public void abrirHome(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/TelaAdmin1.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
-    protected void addToCart(String key) {
-        if (!cartItems.containsKey(key)) {
-            cartItems.put(key, "1");
-        }
-        renderCart();
+    public void abrirNovo() {
+        this.currentEdit = -1;
+        txtNome.setText("");
+        txtPreco.setText("");
+        Image img = new Image(getClass().getResourceAsStream("/view/images/pratos/pratovazio.png"));
+        imgAlterar.setImage(img);
+        slideIn(sidePanel, mainPane);
     }
 
-    protected void renderMoney() {
-        Double total = 0.0;
-        for (MenuItem item : menuItems) {
-            String key = "" + item.getId();
-            String value = cartItems.getOrDefault(key, "-1");
-            int qtd = Integer.parseInt(value);
-            if (qtd > 0) {
-                total += qtd * item.getPreco();
-            }
-        }
-        lbTotal.setText(String.format("%.2f", total));
-        lbSubtotal.setText(String.format("%.2f", total / 1.16));
-        lbIva.setText(String.format("%.2f", (total / 1.16) * 0.16));
-    }
-
-    @FXML
-    protected void processPayment() {
-        if (isProcessing) return;
-        renderMoney();
-        String nomeClient;
-        int mesaId;
-        if (AppContext.getInstance().isUserType(UserType.WORKER)) {
-            nomeClient = cbUser.getValue();
-            if (nomeClient == null || nomeClient.isEmpty()) {
-                Alert confirmar = Utils.criarAlerta(Alert.AlertType.ERROR);
-                confirmar.setHeaderText("Erro");
-                confirmar.setContentText("Por favor selecione o cliente");
-                confirmar.showAndWait();
-                return;
-            }
-            String nomeMesa = cbMesa.getValue();
-            if (nomeMesa == null || nomeMesa.isEmpty()) {
-                Alert confirmar = Utils.criarAlerta(Alert.AlertType.ERROR);
-                confirmar.setHeaderText("Erro");
-                confirmar.setContentText("Por favor selecione a mesa");
-                confirmar.showAndWait();
-                return;
-            }
-            mesaId = Integer.parseInt(nomeMesa.split(" ")[1]);
-        } else {
-            mesaId = -1;
-            nomeClient = "";
-        }
-        String totalApagar = lbTotal.getText();
+    public void confirmarAlteracao() {
         Alert confirmar = Utils.criarAlerta(Alert.AlertType.CONFIRMATION);
-        confirmar.setHeaderText("Confirmar o pagamento?");
-        confirmar.setContentText("Deseja confirmar o pagamento de " + totalApagar + " MT");
+        confirmar.getDialogPane().setPrefHeight(600);
+        if (currentEdit == -1) {
+            confirmar.setTitle("Confirmar prato");
+            confirmar.setHeaderText("Deseja realmente adicionar o prato");
+        }else {
+            confirmar.setTitle("Confirmar Alteracoes");
+            confirmar.setHeaderText("Deseja realmente alterar o prato");
+        }
         confirmar.showAndWait();
-        PedidoService service = new PedidoService();
         if (confirmar.getResult() == ButtonType.OK) {
-            Task<Integer> task = new Task<Integer>() {
-                @Override
-                protected Integer call() throws Exception {
-                    try {
-                        Thread.sleep(2000);
-                        if (AppContext.getInstance().isUserType(UserType.CLIENT))
-                            return service.criarPedidoTakeway(
-                                    AppContext.getInstance().getUsuarioLogado()
-                                    , cartItems);
-                        else
-                            return service.criarPedidoNormal(nomeClient,
-                                    AppContext.getInstance().getUsuarioLogado(),
-                                    mesaId,
-                                    cartItems);
-                    } catch (Exception e) {
-                        return -1;
-                    }
-                }
-            };
-            isProcessing = true;
-            btnPagamento.setText("Fazendo o pagamento...");
-            mainPane.setCursor(Cursor.WAIT);
-            btnPagamento.setCursor(Cursor.WAIT);
-            Utils.adicionarStyle(btnPagamento, "processing");
-            Thread th = new Thread(task);
-            th.setDaemon(true);
-            th.start();
-
-            task.setOnSucceeded(e -> {
-                isProcessing = false;
-                btnPagamento.setCursor(Cursor.DEFAULT);
-                mainPane.setCursor(Cursor.DEFAULT);
-                Utils.removerStyle(btnPagamento, "processing");
-                btnPagamento.setText("Fazer o pagamento");
-                int value = task.getValue();
-                if (value > 0) {
-                    Alert alert = Utils.criarAlerta(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Sucesso");
-                    alert.setHeaderText("Pedido realizado com sucesso");
-                    if (AppContext.getInstance().isUserType(UserType.CLIENT))
-                        alert.setContentText("Ao levantar o pedido diga o seu email");
-                    alert.showAndWait();
-                    cartItems.clear();
-                    renderCart();
-                    renderWorker();
-                } else {
+            double preco;
+            try {
+                preco = Double.parseDouble(txtPreco.getText());
+            } catch (Exception e) {
+                preco = 0;
+            }
+            File selectedFile = currentFile;
+            String url = "null";
+            if (currentFile != null) {
+                File destDir = new File("src/main/resources/view/images/pratos");
+                if (!destDir.exists()) destDir.mkdirs();
+                Path dest = destDir.toPath().resolve(selectedFile.getName());
+                try {
+                    Files.copy(selectedFile.toPath(), dest, StandardCopyOption.REPLACE_EXISTING);
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
                     Alert alert = Utils.criarAlerta(Alert.AlertType.ERROR);
                     alert.setTitle("Erro");
                     alert.setHeaderText("Algo deu errado");
                     alert.setContentText("Por favor tente novamente");
                     alert.showAndWait();
+                    return;
                 }
-            });
+                url = "/view/images/pratos/" + selectedFile.getName();
+            }
+
+
+            service.alterarObjecto(currentEdit, txtNome.getText(), preco, url, cbCategoria.getValue());
+            Alert alert = Utils.criarAlerta(Alert.AlertType.INFORMATION);
+            alert.setTitle("Sucesso");
+            alert.setHeaderText("Prato salvo com sucesso");
+            alert.showAndWait();
+            this.currentEdit = -1;
+            txtNome.setText("");
+            txtPreco.setText("");
+            Image img = new Image(getClass().getResourceAsStream("/view/images/pratos/pratovazio.png"));
+            imgAlterar.setImage(img);
+            renderMenu();
+            slideOut(sidePanel, mainPane);
         }
     }
 
-    public void abrirHome(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/LandingPage.fxml"));
+    public void alterarImagem(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open PNG Image");
+        fileChooser.setInitialDirectory(new File(System.getProperty("user.home"), "Pictures"));
+        fileChooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("PNG files (*.png)", "*.png")
+        );
+        File selectedFile = fileChooser.showOpenDialog(stage);
+        if (selectedFile != null) {
+            this.currentFile = selectedFile;
+            imgAlterar.setImage(new Image(selectedFile.toURI().toString()));
+        }
     }
 }

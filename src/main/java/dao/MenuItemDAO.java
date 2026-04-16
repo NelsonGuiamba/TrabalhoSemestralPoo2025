@@ -38,4 +38,18 @@ public class MenuItemDAO extends BaseDAO<MenuItem, Integer>{
         }
     }
 
+    public List<MenuItem> findAllActive() {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = """
+            FROM MenuItem m
+            WHERE m.active = true
+        """;
+
+            return session.createQuery(hql, MenuItem.class)
+                    .getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return List.of();
+        }
+    }
 }

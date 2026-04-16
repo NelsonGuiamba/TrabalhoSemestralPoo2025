@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -9,10 +10,13 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import services.AdminServices;
+import util.Utils;
 import view.AppContext;
 
 import java.io.IOException;
@@ -41,6 +45,30 @@ public class AdminController1 implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void abrirMenu(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/TelaAdmin2.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void fazerLogout(ActionEvent event) throws IOException {
+        Alert confirmar = Utils.criarAlerta(Alert.AlertType.CONFIRMATION);
+        confirmar.setTitle("Logout");
+        confirmar.setHeaderText("Deseja realmente sair do sistema?");
+        confirmar.setContentText("\nVoce tera que fazer login novamente para aceder o sistema");
+        confirmar.showAndWait();
+        if (confirmar.getResult() == ButtonType.OK) {
+            AppContext.getInstance().setUser(null);
+            AppContext.getInstance().setUsuarioLogado(-1);
+            Parent root = FXMLLoader.load(getClass().getResource("/view/LandingPage.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 
     @Override

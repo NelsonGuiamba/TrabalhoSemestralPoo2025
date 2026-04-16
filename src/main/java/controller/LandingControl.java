@@ -12,19 +12,20 @@ import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.DialogPane;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import model.UserType;
+import services.PedidoService;
 import util.Utils;
 import view.AppContext;
 
 public class LandingControl implements Initializable {
     @FXML
     private HBox menuLinks;
+    @FXML
+    private Button btnLogout;
     private Stage stage;
     private Parent root;
     private Scene scene;
@@ -61,6 +62,7 @@ public class LandingControl implements Initializable {
     }
 
     public void abrirHome(MouseEvent event) throws IOException {
+        AppContext.getInstance().setRoute("home");
         Parent root = FXMLLoader.load(getClass().getResource("/view/LandingPage.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -86,6 +88,10 @@ public class LandingControl implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("state" + AppContext.getInstance().getRoute());
+        if(AppContext.getInstance().getUsuarioLogado() == -1)
+            btnLogout.setVisible(false);
+        else
+            btnLogout.setVisible(true);
         if (AppContext.getInstance().getUsuarioLogado() == -1 ||
                 AppContext.getInstance().getUser().equals(UserType.CLIENT)) {
             Label home = new Label("Home".toUpperCase());
@@ -253,6 +259,62 @@ public class LandingControl implements Initializable {
             alert.showAndWait();
         } else {
             abrirRegister(event);
+        }
+    }
+
+    public void fazerLogout() {
+        Alert confirmar = Utils.criarAlerta(Alert.AlertType.CONFIRMATION);
+        confirmar.setTitle("Logout");
+        confirmar.setHeaderText("Deseja realmente sair do sistema?");
+        confirmar.setContentText("\nVoce tera que fazer login novamente para aceder o sistema");
+        confirmar.showAndWait();
+        if (confirmar.getResult() == ButtonType.OK) {
+            AppContext.getInstance().setUser(null);
+            AppContext.getInstance().setUsuarioLogado(-1);
+
+            Label home = new Label("Home".toUpperCase());
+            Utils.adicionarStyle(home, "menuTitles");
+            home.setOnMouseClicked((MouseEvent mouseEvent) -> {
+                try {
+                    abrirHome(mouseEvent);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+
+            Label menu = new Label("menu".toUpperCase());
+            Utils.adicionarStyle(menu, "menuTitles");
+            menu.setOnMouseClicked((event) -> {
+                try {
+                    abrirMenu(event);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+
+            Label reservar = new Label("Reservar".toUpperCase());
+            Utils.adicionarStyle(reservar, "menuTitles");
+            reservar.setOnMouseClicked((event) -> {
+                try {
+                    abrirReserva(event);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+
+            Label sobre = new Label("Sobre NÓS".toUpperCase());
+            Utils.adicionarStyle(sobre, "menuTitles");
+            sobre.setOnMouseClicked((event) -> {
+                try {
+                    abrirContacto(event);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+
+            btnLogout.setVisible(false);
+            menuLinks.getChildren().clear();
+            menuLinks.getChildren().addAll(home, menu, reservar, sobre);
         }
     }
 }
